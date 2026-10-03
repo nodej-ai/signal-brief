@@ -4,6 +4,7 @@ Each version adds a rule because a real brief broke without it.
 
 ## 1.2.1, October 3, 2026
 - **Type floor by role.** Body text at least 9.5 point; labels, tags, chart text, and table headers at least 8 point; footer at least 7.5 point. One 9 point floor for everything forced cutting content the reader needs. The fit check now enforces 8 point.
+- **Version shown in Claude.** plugin.json now carries the version, so claude.ai and Claude Code show 1.2.1 instead of a guess. `tests/test_versions.py` fails if the prompt, plugin.json, README badge, and changelog disagree.
 - **Examples rebuilt.** All four carry the method credit in the footer and pass the fit check. The Ford brief fixes the page 1 closure arithmetic, says the $250M recipient is not public, shows payroll moving from Ford to Geely, and drops two lines a test reader could not follow.
 
 ## 1.2, October 3, 2026
