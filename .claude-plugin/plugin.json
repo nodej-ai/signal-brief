@@ -1,0 +1,10 @@
+{
+  "name": "signal-brief",
+  "displayName": "Signal Brief",
+  "description": "Turn one news signal into a three-page executive brief.",
+  "author": { "name": "NodeJ", "email": "julian@nodej.ai", "url": "https://nodej.ai" },
+  "homepage": "https://nodej.ai/signal-brief",
+  "repository": "https://github.com/nodej-ai/signal-brief",
+  "license": "CC-BY-4.0",
+  "keywords": ["research", "executive-briefing", "news", "prompt"]
+}

@@ -38,6 +38,17 @@ The first version was one prompt, one pass. It read well, and four of its number
 
 **Runs best on:** Claude with research and code execution, or ChatGPT with deep research. A separate agent for Step 3 makes the reader test stronger. If your tool can't make a PDF, ask for the HTML file and print it to PDF from your browser.
 
+## Install as a Claude plugin
+
+If you use Claude Code, add the NodeJ marketplace and install it:
+
+```
+/plugin marketplace add nodej-ai/nodej
+/plugin install signal-brief@nodej
+```
+
+Then run `/signal-brief:brief` followed by your signal. The plugin reads the same prompt file as this repo, so the two never drift.
+
 ## Examples
 
 | Brief | Signal |
