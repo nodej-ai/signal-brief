@@ -1,0 +1,5 @@
+# Local session logs written by tool hooks. Never publish.
+cowork/
+**/cowork/
+.DS_Store
+__pycache__/

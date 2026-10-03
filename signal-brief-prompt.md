@@ -1,12 +1,12 @@
 # NodeJ Signal Brief: four-step research prompt
 
-**Version 1.1, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
+**Version 1.2, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
 
-Paste this whole file into a model that can browse the web, run code, and (ideally) launch a separate agent. Then, below it, type your signal: the headline or one-sentence fact you want researched. You get back a sourced research report and a three-page brief that teaches a smart reader outside the industry what happened, how it works, and what to do about it.
+Paste this whole file into a chat, or into a Claude Project's instructions, using a model that can browse the web, run code, and (ideally) launch a separate agent. Then type your signal: the headline or one-sentence fact you want researched. You get back a sourced research report and a three-page brief that teaches a smart reader outside the industry what happened, how it works, and what to do about it.
 
 ---
 
-**Signal:** the headline or one-sentence fact typed after this prompt. If none is given, ask for it before starting.
+**Signal:** the headline or one-sentence fact the user gives, typed after this prompt or sent as a message in a project that holds it. If none is given, ask for it before starting.
 
 Run four steps in order. Do not start a step until the one before it is complete and saved. Steps 2 to 4 use only the Step 1 report. No new searching after Step 1.
 
@@ -15,6 +15,8 @@ The standard for the finished brief: a senior executive outside this industry re
 ## Step 1: Research
 
 Write for the next step, not for a reader. Dense paragraphs and tables, no polish, no length limit.
+
+First, name the signal type at the top of the report. An **event** is something done: a deal, a filing, a launch, a price change. A **statement** is something said: a quote, a forecast, a claim. For a statement, also record who said it, their role, where and to whom, the date, what their company sells or wants that the statement helps, and whether the record supports it. Then research the sections below for the actions the statement is about (for example, the partnerships and tariffs behind a chief executive's warning about rivals).
 
 Cover, in this order:
 
@@ -52,7 +54,7 @@ Write in teaching order: what happened, how it works, why they did it, what it c
 
 - A small brand line at the top (use "Signal Brief" unless told otherwise), then the date.
 - **Title.** The read, not the topic. Six words or fewer.
-- **Signal.** One sentence: what happened.
+- **Signal.** One sentence: what happened. For a statement, name the speaker, their role, and the date, and let the Read say what the statement does for the speaker.
 - **Read.** The motive in plain words, one or two sentences a non-expert understands on first read. Answer "why would they do this?"
 - **Cost.** One or two sentences: what the move costs against the obvious alternative.
 - **The simple version.** Two or three sentences explaining the mechanism, with the everyday analogy.

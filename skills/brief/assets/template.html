@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Signal Brief</title>
+<!--
+  NodeJ Signal Brief template (generic). Fill every [bracketed] slot from report.md.
+  Rules this layout enforces: US Letter, three pages, one accent color, nothing under 9 pt
+  (footer 8 pt), credit in every footer. Delete a block rather than shrink it.
+  Change the accent by editing --accent. Do not change any font-size below 9pt.
+-->
+<style>
+:root {
+  --ink: #1C2329; --gray: #5B6670; --rule: #D9DEE2; --soft: #F2F4F6;
+  --accent: #2B5F8C;
+  --display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+@page { size: letter; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: #fff; color: var(--ink); font-family: var(--sans); font-size: 9.6pt; line-height: 1.42; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.page { width: 8.5in; height: 11in; padding: 0.55in 0.65in 0.75in 0.65in; position: relative; page-break-after: always; }
+.page:last-child { page-break-after: auto; }
+.foot { position: absolute; left: 0.65in; right: 0.65in; bottom: 0.35in; border-top: 0.5pt solid var(--rule); padding-top: 5pt; font-size: 8pt; color: var(--gray); display: flex; justify-content: space-between; }
+.brand { font-size: 9pt; font-weight: 600; color: var(--accent); margin: 0 0 4pt 0; }
+.brand span { color: var(--gray); font-weight: 400; margin-left: 6pt; }
+h1 { font-family: var(--display); font-weight: 700; font-size: 26pt; line-height: 1.05; margin: 0 0 10pt 0; }
+h2 { font-family: var(--display); font-weight: 700; font-size: 13pt; line-height: 1.2; margin: 12pt 0 4pt 0; }
+p { margin: 0 0 5pt 0; }
+.ledger { display: grid; grid-template-columns: 0.75in 1fr; column-gap: 0.18in; row-gap: 4pt; }
+.tag { font-size: 9pt; font-weight: 600; color: var(--gray); padding-top: 1pt; }
+.tag.sig { color: var(--ink); } .tag.read { color: var(--accent); }
+.lead { font-size: 10.5pt; }
+.walk { display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 8pt; margin-top: 4pt; }
+.step { border-top: 3pt solid var(--rule); padding-top: 4pt; font-size: 9pt; line-height: 1.32; }
+.step.on { border-top-color: var(--accent); }
+.step .n { font-weight: 600; color: var(--gray); }
+.step b { display: block; font-family: var(--display); font-size: 14pt; line-height: 1.1; margin: 2pt 0; }
+.vs { display: grid; grid-template-columns: 1fr 1fr; column-gap: 12pt; margin-top: 4pt; }
+.box { border: 1pt solid var(--rule); border-radius: 6pt; padding: 6pt 10pt 4pt 10pt; }
+.box.hi { border: 1.5pt solid var(--accent); }
+.box h3 { margin: 0 0 3pt 0; font-size: 10pt; }
+.box.hi h3 { color: var(--accent); }
+.row { display: grid; grid-template-columns: 1fr auto; column-gap: 8pt; padding: 2pt 0; border-top: 0.5pt solid var(--rule); font-size: 9pt; }
+.row span:last-child { font-weight: 600; text-align: right; }
+.math { margin-top: 6pt; border-top: 0.5pt solid var(--rule); padding-top: 4pt; display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 8pt; font-size: 9pt; color: var(--gray); }
+.math b { display: block; color: var(--ink); font-size: 10pt; }
+.math .res b { color: var(--accent); }
+.fx { font-size: 9pt; color: var(--gray); margin-top: 4pt; }
+table { width: 100%; border-collapse: collapse; font-size: 9pt; line-height: 1.32; }
+th { text-align: left; font-weight: 600; color: var(--gray); padding: 2pt 6pt 2pt 0; }
+td { border-top: 0.5pt solid var(--rule); padding: 3pt 6pt 3pt 0; vertical-align: top; }
+td.b { font-weight: 600; }
+tr.you td { border-top: 1pt solid var(--ink); } tr.you td.b { color: var(--accent); }
+.ladder .rung { display: grid; grid-template-columns: 1.4in 1fr; column-gap: 10pt; padding: 3pt 0 3pt 8pt; border-left: 3pt solid var(--rule); margin-bottom: 2pt; font-size: 9.2pt; }
+.ladder .rung.on { border-left-color: var(--accent); }
+.ns p { margin-bottom: 6pt; }
+.ns b { display: block; }
+.qs { display: grid; grid-template-columns: 1fr 1fr; column-gap: 14pt; font-size: 9.2pt; }
+.qs .q { font-weight: 600; border-top: 0.5pt solid var(--rule); padding: 3pt 0; }
+.qs .t { color: var(--accent); border-top: 0.5pt solid var(--rule); padding: 3pt 0; }
+.watch { display: grid; grid-template-columns: 1in 1fr; row-gap: 3pt; font-size: 9.2pt; }
+.watch .d { font-weight: 600; color: var(--accent); }
+.byline { font-size: 9pt; color: var(--gray); margin-top: 8pt; }
+svg text { font-family: var(--sans); }
+.svg-l { font-size: 12px; fill: var(--gray); } .svg-v { font-size: 12px; font-weight: 600; fill: var(--ink); }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: the learning -->
+<section class="page">
+  <p class="brand">Signal Brief<span>[Month D, YYYY]</span></p>
+  <h1>[The read, six words or fewer]</h1>
+  <div class="ledger lead">
+    <div class="tag sig">Signal</div><p>[One sentence: what happened. For a statement signal, name the speaker, role, and date.]</p>
+    <div class="tag read">Read</div><p>[Why would they do this? One or two plain sentences.]</p>
+    <div class="tag">Cost</div><p>[What the move costs against the obvious alternative, one or two sentences.]</p>
+  </div>
+
+  <h2>The simple version</h2>
+  <p>[Two or three sentences on how it works, with the everyday analogy.]</p>
+
+  <h2>The money walk</h2>
+  <div class="walk">
+    <div class="step"><span class="n">1. Before</span><b>$[x]</b>[What exists before the deal.]</div>
+    <div class="step on"><span class="n">2. Deal day</span><b>$[x]</b>[Who pays whom.]</div>
+    <div class="step"><span class="n">3. The cash</span><b>$[x]</b>[What the money is used for.]</div>
+    <div class="step"><span class="n">4. Each year</span><b>$[x] Est</b>[What flows every year.]</div>
+    <div class="step"><span class="n">5. The end</span><b>$[x]</b>[What happens at the end.]</div>
+  </div>
+
+  <h2>The alternative, side by side</h2>
+  <div class="vs">
+    <div class="box hi"><h3>[The move]</h3>
+      <div class="row"><span>Cash raised</span><span>$[x]</span></div>
+      <div class="row"><span>Debt on the books</span><span>[partly / no]</span></div>
+      <div class="row"><span>Who lends</span><span>[who]</span></div>
+      <div class="row"><span>What is owned</span><span>[what]</span></div>
+      <div class="row"><span>Who carries the risk</span><span>[who]</span></div>
+    </div>
+    <div class="box"><h3>[The obvious alternative]</h3>
+      <div class="row"><span>Cash raised</span><span>$[x]</span></div>
+      <div class="row"><span>Debt on the books</span><span>[yes]</span></div>
+      <div class="row"><span>Who lends</span><span>[who]</span></div>
+      <div class="row"><span>What is owned</span><span>[what]</span></div>
+      <div class="row"><span>Who carries the risk</span><span>[who]</span></div>
+    </div>
+  </div>
+
+  <div class="math">
+    <div>[Input A]<b>$[x]</b></div><div>[Input B]<b>[x]%</b></div><div>[Input C]<b>[x] yrs</b></div><div>[Input D]<b>$[x]</b></div><div class="res">= [Result] Est<b>$[x]</b></div>
+  </div>
+  <p class="fx">[Only if any figure was converted: €1 = $[x] (European Central Bank reference rate, Mon D YYYY).]</p>
+
+  <div class="foot"><span>Signal Brief | [Title] | [Month YYYY] | Method: NodeJ Signal Brief (nodej.ai)</span><span>Page 1 of 3</span></div>
+</section>
+
+<!-- PAGE 2: the field -->
+<section class="page">
+  <h2 style="margin-top:0">Who else</h2>
+  <table>
+    <tr><th>Who</th><th>Counterparty</th><th>Size</th><th>Term</th><th>New or existing</th><th>The read</th></tr>
+    <tr><td class="b">[Company]</td><td>[Counterparty]</td><td>$[x]</td><td>[x] yrs</td><td>[New]</td><td>[What this row teaches that no other row does.]</td></tr>
+    <tr><td class="b">[Company]</td><td>[Counterparty]</td><td>$[x]</td><td>[x] yrs</td><td>[Existing]</td><td>[One-line read.]</td></tr>
+    <tr><td class="b">[Company]</td><td>[Counterparty]</td><td>$[x]</td><td>[x] yrs</td><td>[New]</td><td>[One-line read.]</td></tr>
+    <tr><td class="b">[Company]</td><td>[Counterparty]</td><td>$[x]</td><td>[x] yrs</td><td>[Existing]</td><td>[One-line read.]</td></tr>
+    <tr class="you"><td class="b">[Reader's industry, last]</td><td>[Counterparty]</td><td>$[x]</td><td>[x] yrs</td><td>[New]</td><td>[One-line read.]</td></tr>
+  </table>
+
+  <h2>What it looks like for you</h2>
+  <div class="ladder">
+    <div class="rung on"><b>Minimum</b><span>[$x or size floor]</span></div>
+    <div class="rung"><b>Deposit</b><span>[x% up front]</span></div>
+    <div class="rung"><b>Term</b><span>[x years]</span></div>
+    <div class="rung"><b>Exit cost</b><span>[penalty]</span></div>
+    <div class="rung"><b>Borrowing rate</b><span>[rate by credit quality]</span></div>
+  </div>
+
+  <h2>What is not being said</h2>
+  <div class="ns">
+    <p><b>[Bold one-line insight.]</b>[Dated fact behind it.] [Consequence for the reader, no label.]</p>
+    <p><b>[Bold one-line insight.]</b>[Dated fact behind it.] [Consequence for the reader, no label.]</p>
+    <p><b>[Bold one-line insight.]</b>[Dated fact behind it.] [Consequence for the reader, no label.]</p>
+  </div>
+
+  <div class="foot"><span>Signal Brief | [Title] | [Month YYYY] | Method: NodeJ Signal Brief (nodej.ai)</span><span>Page 2 of 3</span></div>
+</section>
+
+<!-- PAGE 3: the turn -->
+<section class="page">
+  <h2 style="margin-top:0">The twist</h2>
+  <!-- Timeline: 4 to 8 beats. Copy a <g> per beat; x runs 40 to 600. Keep labels to 3 short lines. -->
+  <svg viewBox="0 0 640 110" width="100%" role="img" aria-label="Timeline of [what]">
+    <line x1="40" y1="34" x2="600" y2="34" stroke="#D9DEE2" stroke-width="1.5"/>
+    <g><circle cx="40" cy="34" r="5" fill="#5B6670"/><text x="40" y="20" class="svg-v" text-anchor="start">[Mon YYYY]</text><text x="40" y="54" class="svg-l" text-anchor="start">[What happened]</text></g>
+    <g><circle cx="227" cy="34" r="5" fill="#2B5F8C"/><text x="227" y="20" class="svg-v" text-anchor="middle">[Mon D]</text><text x="227" y="54" class="svg-l" text-anchor="middle">[What was said]</text></g>
+    <g><circle cx="413" cy="34" r="5" fill="#2B5F8C"/><text x="413" y="20" class="svg-v" text-anchor="middle">[Mon D]</text><text x="413" y="54" class="svg-l" text-anchor="middle">[What was done]</text></g>
+    <g><circle cx="600" cy="34" r="5" fill="#1C2329"/><text x="600" y="20" class="svg-v" text-anchor="end">[Mon D]</text><text x="600" y="54" class="svg-l" text-anchor="end">[Today's signal]</text></g>
+  </svg>
+  <div class="ledger"><div class="tag">Fact</div><p>[One fact that adds something the beats do not.]</p></div>
+
+  <h2>The everyday version</h2>
+  <p>[Three to five lines of history from the report.]</p>
+  <p><b>Where it breaks:</b> [Where the comparison stops holding.]</p>
+
+  <h2>What would change the read</h2>
+  <p>[Scenario one, in flowing sentences.] [Scenario two.]</p>
+
+  <h2>Three questions for an executive</h2>
+  <div class="qs">
+    <div class="q">[Question answerable with a number.]</div><div class="t">Then: [what you do with the answer]</div>
+    <div class="q">[Question answerable with a number.]</div><div class="t">Then: [what you do with the answer]</div>
+    <div class="q">[Question answerable with a number.]</div><div class="t">Then: [what you do with the answer]</div>
+  </div>
+
+  <h2>What to watch</h2>
+  <div class="watch">
+    <div class="d">[Mon D YYYY]</div><div>[Event that confirms or breaks the read.]</div>
+    <div class="d">[Mon D YYYY]</div><div>[Event that confirms or breaks the read.]</div>
+  </div>
+
+  <p class="byline">[Researched by ... For the full research report, contact ...]</p>
+
+  <div class="foot"><span>Signal Brief | [Title] | [Month YYYY] | Method: NodeJ Signal Brief (nodej.ai)</span><span>Page 3 of 3</span></div>
+</section>
+</body>
+</html>

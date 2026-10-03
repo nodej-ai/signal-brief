@@ -1,6 +1,6 @@
 # NodeJ Signal Brief
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.1](https://img.shields.io/badge/version-1.1-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.1](https://img.shields.io/badge/version-1.2-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
 
 A four-step prompt that turns one news signal into a sourced research report and a three-page brief a busy executive can read in three minutes.
 
@@ -29,25 +29,42 @@ If this helps, star the repo so others can find it.
 
 The first version was one prompt, one pass. It read well, and four of its numbers were wrong. Splitting the work into steps fixed it: research first, then writing, then a fresh reader checking the writing, then fixes. Each step catches what the last one missed.
 
-## How to use it
+Steps 3 and 4 are a loop: a reader who never saw the research flags what is unclear, the writer fixes it, and the reader checks again. Two rounds, then stop.
 
-1. Copy all of [`signal-brief-prompt.md`](signal-brief-prompt.md).
-2. Paste it into a model that can browse the web and run code. A prompt this long arrives as a pasted block, so leave it as is.
-3. Below it, type your signal: the headline or a one-sentence fact. For example: "Signal: Ford's CEO says it is too late for Europe to hold off Chinese automakers, but not for the US."
-4. Send.
+## Pick your level
 
-**Runs best on:** Claude with research and code execution, or ChatGPT with deep research. A separate agent for Step 3 makes the reader test stronger. If your tool can't make a PDF, ask for the HTML file and print it to PDF from your browser.
+| Level | What you do | Best for |
+|---|---|---|
+| **1. Paste** | Copy all of [`signal-brief-prompt.md`](signal-brief-prompt.md) into a chat, then type your signal below it | Any model with web search and code, including ChatGPT |
+| **2. Claude Project** | Create a Project and paste the prompt into its **project instructions** (not as an uploaded file). After that, every chat in the project is just your signal | Claude users who want zero setup after the first time |
+| **3. Claude plugin** | Install from the NodeJ marketplace (below). Adds a page template, a fit check, and a separate reader agent | Claude users who want the most consistent briefs |
 
-## Install as a Claude plugin
+A signal is the headline or a one-sentence fact. For example: "Signal: Ford's CEO says it is too late for Europe to hold off Chinese automakers, but not for the US."
 
-If you use Claude Code, add the NodeJ marketplace and install it:
+**Runs best on:** Claude with web search and code execution turned on, or ChatGPT with deep research. If your tool can't make a PDF, ask for the HTML file and print it to PDF from your browser.
+
+## Install the Claude plugin
+
+One marketplace works everywhere. Install it once on claude.ai and it also appears in Claude Code.
+
+- **claude.ai, desktop, or Cowork:** Customize > Plugins > add a marketplace, enter `nodej-ai/nodej`, then install **Signal Brief**.
+- **Claude Code:**
 
 ```
 /plugin marketplace add nodej-ai/nodej
 /plugin install signal-brief@nodej
 ```
 
-Then run `/signal-brief:brief` followed by your signal. The plugin reads the same prompt file as this repo, so the two never drift.
+Then ask for a brief ("brief this: ...") or, in Claude Code, run `/signal-brief:brief` followed by your signal.
+
+The plugin reads the same prompt file as this repo, so the two never drift. On top of the prompt it adds:
+
+| Piece | What it does |
+|---|---|
+| `skills/brief/assets/template.html` | A three-page US Letter layout with every section in place, so the model writes content, not CSS |
+| `skills/brief/scripts/fit_check.py` | Checks the finished PDF: exactly three pages, no type under 9 point, the method credit on every page, nothing over the footer. The brief ships only on PASS |
+| `skills/brief/scripts/render.py` | Turns the HTML into a PDF and warns when a page overflows |
+| `agents/reader.md` | The Step 3 reader as its own agent, given only the brief, never the research (Claude Code and Cowork; chat uses a fresh pass) |
 
 ## Examples
 
