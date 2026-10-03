@@ -3,12 +3,12 @@
 
 Checks the rules a model can talk itself out of:
   1. Exactly N pages (default 3), each US Letter.
-  2. No text below the minimum size (default 9 pt). The footer line may go
+  2. No text below the minimum size (default 8 pt; the prompt asks 9.5 pt for body text). The footer line may go
      down to --footer-min (default 7.5 pt).
   3. Every page carries the method credit in its footer.
   4. Nothing overlaps the footer and nothing runs off the page.
 
-Usage:  python3 fit_check.py brief.pdf [--pages 3] [--min-pt 9]
+Usage:  python3 fit_check.py brief.pdf [--pages 3] [--min-pt 8]
 Exit 0 = pass. Exit 1 = fail (the reasons are printed). Exit 2 = could not read.
 Needs pdfplumber (pip install pdfplumber).
 """
@@ -115,7 +115,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("pdf")
     ap.add_argument("--pages", type=int, default=3)
-    ap.add_argument("--min-pt", type=float, default=9.0)
+    ap.add_argument("--min-pt", type=float, default=8.0)
     ap.add_argument("--footer-min", type=float, default=7.5)
     ap.add_argument("--credit", default=CREDIT, help='footer text that must appear on every page ("" to skip)')
     a = ap.parse_args()

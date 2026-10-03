@@ -2,6 +2,10 @@
 
 Each version adds a rule because a real brief broke without it.
 
+## 1.2.1, October 3, 2026
+- **Type floor by role.** Body text at least 9.5 point; labels, tags, chart text, and table headers at least 8 point; footer at least 7.5 point. One 9 point floor for everything forced cutting content the reader needs. The fit check now enforces 8 point.
+- **Examples rebuilt.** All four carry the method credit in the footer and pass the fit check. The Ford brief fixes the page 1 closure arithmetic, says the $250M recipient is not public, shows payroll moving from Ford to Geely, and drops two lines a test reader could not follow.
+
 ## 1.2, October 3, 2026
 - **Statement signals.** Step 1 now names the signal type. A quote or forecast (like the Ford chief executive's line) gets its own research: who said it, to whom, what it helps them sell, and whether the record backs it. The brief's Signal line names the speaker.
 - **Project instructions.** The prompt works pasted into a chat or into a Claude Project's instructions.

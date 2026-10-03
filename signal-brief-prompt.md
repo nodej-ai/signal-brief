@@ -1,6 +1,6 @@
 # NodeJ Signal Brief: four-step research prompt
 
-**Version 1.2, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
+**Version 1.2.1, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
 
 Paste this whole file into a chat, or into a Claude Project's instructions, using a model that can browse the web, run code, and (ideally) launch a separate agent. Then type your signal: the headline or one-sentence fact you want researched. You get back a sourced research report and a three-page brief that teaches a smart reader outside the industry what happened, how it works, and what to do about it.
 
@@ -99,7 +99,7 @@ Also:
 - Tag lines in the margin only where the tag helps (Signal, Read, Fact, Est). No tag legend.
 - Use the Corrections log to decide which figures to trust. Do not print the log.
 - No issue number, no editor credit, no mention of models, agents, or process.
-- Keep each page to one minute of reading. If a page runs long, cut. Do not shrink type below 9 point.
+- Keep each page to one minute of reading. If a page runs long, cut. Type sizes: body text at least 9.5 point; labels, margin tags, chart text, and table headers at least 8 point; the footer at least 7.5 point. Never shrink type to fit.
 
 ### Look
 
@@ -142,7 +142,7 @@ For every item in `reader-test.md`:
 
 1. Answer it in the brief using only `report.md`. If the report cannot answer it, cut the line that raised it.
 2. After all fixes, check every simplified claim against its line in the report. A plain-English version must still be true (partly off the books stays "partly").
-3. Rebuild and render. Check every page: three pages exactly, nothing overlapping the footer, no type below 9 point. Cut to fit; never shrink.
+3. Rebuild and render. Check every page: three pages exactly, nothing overlapping the footer, no type below the sizes above. Cut to fit; never shrink.
 4. Run Step 3 once more on the fixed brief. Fix what it finds. Stop after two reader-test rounds.
 
 Save `reader-test.md` with both rounds and what was changed for each item.

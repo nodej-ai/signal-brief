@@ -1,6 +1,6 @@
 # NodeJ Signal Brief
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.1](https://img.shields.io/badge/version-1.2-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.1](https://img.shields.io/badge/version-1.2.1-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
 
 A four-step prompt that turns one news signal into a sourced research report and a three-page brief a busy executive can read in three minutes.
 
@@ -47,7 +47,7 @@ A signal is the headline or a one-sentence fact. For example: "Signal: Ford's CE
 
 One marketplace works everywhere. Install it once on claude.ai and it also appears in Claude Code.
 
-- **claude.ai, desktop, or Cowork:** Customize > Plugins > add a marketplace, enter `nodej-ai/nodej`, then install **Signal Brief**.
+- **claude.ai, desktop, or Cowork:** go to [Customize > Plugins](https://claude.ai/customize/plugins), choose **Add > Add marketplace**, and enter `nodej-ai/nodej` (or `https://github.com/nodej-ai/nodej`). Find **Signal Brief** in the list and select **Add**. Turn on **Sync automatically** for the marketplace to get updates as they ship.
 - **Claude Code:**
 
 ```
@@ -62,7 +62,7 @@ The plugin reads the same prompt file as this repo, so the two never drift. On t
 | Piece | What it does |
 |---|---|
 | `skills/brief/assets/template.html` | A three-page US Letter layout with every section in place, so the model writes content, not CSS |
-| `skills/brief/scripts/fit_check.py` | Checks the finished PDF: exactly three pages, no type under 9 point, the method credit on every page, nothing over the footer. The brief ships only on PASS |
+| `skills/brief/scripts/fit_check.py` | Checks the finished PDF: exactly three pages, no type under 8 point (footer 7.5), the method credit on every page, nothing over the footer. The brief ships only on PASS |
 | `skills/brief/scripts/render.py` | Turns the HTML into a PDF and warns when a page overflows |
 | `agents/reader.md` | The Step 3 reader as its own agent, given only the brief, never the research (Claude Code and Cowork; chat uses a fresh pass) |
 
