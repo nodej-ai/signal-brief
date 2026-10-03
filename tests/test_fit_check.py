@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tests for skills/brief/scripts/fit_check.py. Run: python3 tests/test_fit_check.py
+"""Tests for skills/signal-brief/scripts/fit_check.py. Run: python3 tests/test_fit_check.py
 Builds small PDFs with reportlab and checks that each rule passes and fails when it should."""
 import os
 import subprocess
@@ -10,7 +10,7 @@ from reportlab.lib.pagesizes import A4, letter
 from reportlab.pdfgen import canvas
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CHECK = os.path.join(HERE, "..", "skills", "brief", "scripts", "fit_check.py")
+CHECK = os.path.join(HERE, "..", "skills", "signal-brief", "scripts", "fit_check.py")
 CREDIT = "Method: NodeJ Signal Brief (nodej.ai)"
 
 

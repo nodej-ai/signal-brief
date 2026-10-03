@@ -7,7 +7,7 @@ def read(p): return open(os.path.join(ROOT, p), encoding="utf-8").read()
 found = {
     "plugin.json": json.loads(read(".claude-plugin/plugin.json")).get("version"),
     "prompt header": (re.search(r"\*\*Version ([0-9.]+),", read("signal-brief-prompt.md")) or [None, None])[1],
-    "skill prompt.md": (re.search(r"\*\*Version ([0-9.]+),", read("skills/brief/prompt.md")) or [None, None])[1],
+    "skill prompt.md": (re.search(r"\*\*Version ([0-9.]+),", read("skills/signal-brief/prompt.md")) or [None, None])[1],
     "README badge": (re.search(r"badge/version-([0-9.]+)-", read("README.md")) or [None, None])[1],
     "CHANGELOG top": (re.search(r"^## ([0-9.]+),", read("CHANGELOG.md"), re.M) or [None, None])[1],
 }

@@ -1,5 +1,5 @@
 ---
-name: brief
+name: signal-brief
 description: Turn one news signal into a three-page NodeJ Signal Brief for executives, with a sourced research report and a reader test. Use when the user asks for a signal brief, says "brief this", or gives a headline or one-sentence fact to research and explain.
 ---
 
