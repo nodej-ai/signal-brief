@@ -47,7 +47,11 @@ A signal is the headline or a one-sentence fact. For example: "Signal: Ford's CE
 
 One marketplace works everywhere. Install it once on claude.ai and it also appears in Claude Code.
 
-- **claude.ai, desktop, or Cowork:** go to [Customize > Plugins](https://claude.ai/customize/plugins), choose **Add > Add marketplace**, and enter `nodej-ai/nodej` (or `https://github.com/nodej-ai/nodej`). Find **Signal Brief** in the list and select **Add**. Turn on **Sync automatically** for the marketplace to get updates as they ship.
+- **claude.ai, desktop, or Cowork:**
+  1. Go to [Customize > Plugins](https://claude.ai/customize/plugins) and choose **Add > Add marketplace > Add from a repository**.
+  2. In **URL**, type `nodej-ai/nodej` and choose **Sync**.
+  3. On the **Discover** tab, find **Signal Brief** and choose **Add**.
+  4. Updates: choose **Check for updates** on the marketplace any time. If you turn on **Sync automatically**, Claude asks you to give the Claude GitHub App access. Pick **Only select repositories**, never all of them.
 - **Claude Code:**
 
 ```
