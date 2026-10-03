@@ -51,7 +51,7 @@ One marketplace works everywhere. Install it once on claude.ai and it also appea
   1. Go to [Customize > Plugins](https://claude.ai/customize/plugins) and choose **Add > Add marketplace > Add from a repository**.
   2. In **URL**, type `nodej-ai/nodej` and choose **Sync**.
   3. On the **Discover** tab, find **Signal Brief** and choose **Add**.
-  4. Updates: choose **Check for updates** on the marketplace any time. If you turn on **Sync automatically**, Claude asks you to give the Claude GitHub App access. Pick **Only select repositories**, never all of them.
+  4. Updates: leave **Sync automatically** off and choose **Check for updates** on the marketplace when you want the latest version. Turning auto-sync on asks you to give the Claude GitHub App read and write access to your code, which a public marketplace does not need.
 - **Claude Code:**
 
 ```
