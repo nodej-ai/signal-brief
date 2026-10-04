@@ -32,6 +32,7 @@ jobs:
         run: |
           python3 tests/test_fit_check.py
           python3 tests/test_ledger_check.py
+          python3 tests/test_bar.py
 
       - name: Release notes from CHANGELOG
         run: |

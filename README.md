@@ -1,6 +1,6 @@
 # NodeJ Signal Brief
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.3.0](https://img.shields.io/badge/version-1.3.0-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.3.1](https://img.shields.io/badge/version-1.3.1-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
 
 A four-step prompt that turns one news signal into a sourced research report and a three-page brief a busy executive can read in three minutes.
 
@@ -73,6 +73,7 @@ The plugin reads the same prompt file as this repo, so the two never drift. On t
 | `skills/signal-brief/scripts/fit_check.py` | Checks the finished PDF: exactly three pages, no type under 8 point (footer 7.5), the method credit on every page, nothing over the footer. The brief ships only on PASS |
 | `skills/signal-brief/scripts/render.py` | Turns the HTML into a PDF and warns when a page overflows |
 | `skills/signal-brief/scripts/ledger_check.py` | Checks that every number in the brief traces to the research ledger, every estimate recomputes from its formula, and page 1 uses only top-grade figures |
+| `skills/signal-brief/scripts/bar.py` | Draws the page-1 picture: one bar for the core proportion, from two research figures, hatched when it is an estimate |
 | `skills/signal-brief/scripts/timing.py` | Writes the timing log and prints minutes per step |
 | `agents/fact-checker.md` | The Step 3 fact checker as its own agent, run alongside the reader (Claude Code and Cowork) |
 | `agents/reader.md` | The Step 3 reader as its own agent, given only the brief, never the research (Claude Code and Cowork; chat uses a fresh pass) |

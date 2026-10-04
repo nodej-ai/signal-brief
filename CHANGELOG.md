@@ -2,6 +2,9 @@
 
 Each version adds a rule because a real brief broke without it.
 
+## 1.3.1, October 3, 2026
+- **A picture on page 1.** One bar shows the core proportion at a glance (for Ford, 98,700 cars built against 500,000 of capacity), with a heading that states the takeaway. The Oct 2 Ford brief had one because it was hand-built; the method never asked for it, so later runs came out text only. `bar.py` draws it the same way every time, hatched for estimates, and its numbers come from the ledger so the ledger check traces them.
+
 ## 1.3.0, October 3, 2026
 - **Every number traces.** The research keeps a Figures ledger: value, source, date, grade, and the exact sentence each figure came from. Estimates carry a formula. `ledger_check.py` fails the brief if a printed number has no ledger row, an estimate does not recompute, or page 1 uses anything below the top grade. Two runs of the Ford signal produced closure costs that barely overlapped; a recomputed formula would have caught it.
 - **A fact checker beside the reader.** The reader tests clarity, the fact checker tests truth. They run at the same time, and the reader runs one round unless its explanation of the deal was wrong.

@@ -1,6 +1,6 @@
 # NodeJ Signal Brief: four-step research prompt
 
-**Version 1.3.0, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
+**Version 1.3.1, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
 
 Paste this whole file into a chat, or into a Claude Project's instructions, using a model that can browse the web, run code, and (ideally) launch a separate agent. Then type your signal: the headline or one-sentence fact you want researched. You get back a sourced research report and a three-page brief that teaches a smart reader outside the industry what happened, how it works, and what to do about it.
 
@@ -77,6 +77,7 @@ Write in teaching order: what happened, how it works, why they did it, what it c
 - **Read.** The motive in plain words, one or two sentences a non-expert understands on first read. Answer "why would they do this?"
 - **Cost.** One or two sentences: what the move costs against the obvious alternative.
 - **The simple version.** Two or three sentences explaining the mechanism, with the everyday analogy.
+- **The picture.** One bar that shows the core proportion at a glance: used against capacity, part against whole, or before against after. Both numbers come from the Figures ledger or Estimates. Its heading states the takeaway in eight words or fewer (for example "Four in five slots sit empty"). Draw an estimate hatched, never solid.
 - **The money walk.** Four to six numbered steps with dollar amounts, drawn as a row of steps. Label estimates Est.
 - **The alternative, side by side.** Two boxes comparing the move with the obvious alternative, same rows in each.
 - **The arithmetic.** One strip showing how any estimated number was computed, inputs named.
@@ -115,7 +116,7 @@ Write in teaching order: what happened, how it works, why they did it, what it c
 
 14. **Only graded numbers.** Every number on the page comes from the Figures ledger (grade A or B) or the Estimates table. Page 1 uses grade A figures and estimates only. Fewer numbers are better than weaker ones.
 
-**Word budgets.** Write to these limits the first time; they are sized so each page fits without trimming later. Title 6 words. Signal 35. Read 45. Cost 40. Simple version 60. Each money-walk step 18. Each alternative box 5 rows of 6 words. Arithmetic strip 5 inputs. Who-else read 14 per row. Each "not being said" item 45. Twist beats 6 words each. Everyday version 70. Each scenario 35. Each question 25, each "Then:" 20. Each watch item 20.
+**Word budgets.** Write to these limits the first time; they are sized so each page fits without trimming later. Title 6 words. Signal 35. Read 45. Cost 40. Simple version 60. Picture heading 8. Each money-walk step 18. Each alternative box 5 rows of 6 words. Arithmetic strip 5 inputs. Who-else read 14 per row. Each "not being said" item 45. Twist beats 6 words each. Everyday version 70. Each scenario 35. Each question 25, each "Then:" 20. Each watch item 20.
 
 Also:
 

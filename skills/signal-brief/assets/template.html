@@ -10,7 +10,7 @@
   Change the accent by editing --accent. Do not lower any font-size.
   Word budgets (from the prompt): title 6, Signal 35, Read 45, Cost 40, simple version 60,
   money-walk step 18, alternative box 5 rows x 6 words, who-else read 14, not-said item 45,
-  twist beat 6, everyday version 70, scenario 35, question 25 + Then 20, watch item 20.
+  picture title 8, twist beat 6, everyday version 70, scenario 35, question 25 + Then 20, watch item 20.
   Every number must come from the report's Figures ledger or Estimates (ledger_check.py checks this).
 -->
 <style>
@@ -67,7 +67,10 @@ tr.you td { border-top: 1pt solid var(--ink); } tr.you td.b { color: var(--accen
 .watch .d { font-weight: 600; color: var(--accent); }
 .byline { font-size: 9pt; color: var(--gray); margin-top: 8pt; }
 svg text { font-family: var(--sans); }
-.svg-l { font-size: 12px; fill: var(--gray); } .svg-v { font-size: 12px; font-weight: 600; fill: var(--ink); }
+.svg-l { font-size: 12px; fill: var(--gray); }
+.exhibit { margin-top: 4pt; }
+.exhibit h2 { margin-bottom: 2pt; }
+svg.sb-bar text { font-family: var(--sans); } .svg-v { font-size: 12px; font-weight: 600; fill: var(--ink); }
 </style>
 </head>
 <body>
@@ -84,6 +87,22 @@ svg text { font-family: var(--sans); }
 
   <h2>The simple version</h2>
   <p>[Two or three sentences on how it works, with the everyday analogy.]</p>
+
+  <!-- THE PICTURE: one bar for the core proportion (used vs capacity, part vs whole, before vs after).
+       Make it with: python3 scripts/bar.py --part <ledger value> --whole <ledger value>
+         --part-label "..." --whole-label "..." --rest-label "..." [--est]
+       and paste the SVG below in place of this example. The heading is the takeaway, 8 words or fewer. -->
+  <div class="exhibit">
+    <h2>[The takeaway, 8 words or fewer]</h2>
+    <svg class="sb-bar" viewBox="0 0 640 64" width="100%" role="img" aria-label="[Part, as the brief prints it] of [Whole, as the brief prints it]">
+    <defs><pattern id="sb-hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#ffffff"/><line x1="0" y1="0" x2="0" y2="6" stroke="var(--accent, #2B5F8C)" stroke-width="3"/></pattern></defs>
+    <text x="0" y="14" style="font-size:13px;font-weight:600;fill:var(--ink, #1C2329)">[Part, as the brief prints it]</text>
+    <text x="640" y="14" text-anchor="end" style="font-size:12px;fill:var(--gray, #5B6670)">[Whole, as the brief prints it]</text>
+    <rect x="0" y="24" width="640" height="26" style="fill:var(--soft, #F2F4F6);stroke:var(--rule, #D9DEE2)"/>
+    <rect x="0" y="24" width="128.0" height="26" style="fill:var(--accent, #2B5F8C);stroke:var(--accent, #2B5F8C)"/>
+    <text x="136.0" y="41" text-anchor="start" style="font-size:12px;fill:var(--gray, #5B6670)">[What the empty part means]</text>
+    </svg>
+  </div>
 
   <h2>The money walk</h2>
   <div class="walk">
