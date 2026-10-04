@@ -1,0 +1,44 @@
+name: Release
+
+# Push a tag like v1.2.3 and this workflow tests the repo, then publishes the
+# GitHub release using that version's CHANGELOG entry. No local gh login needed.
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install test dependencies
+        run: pip install pdfplumber reportlab
+
+      - name: Tag matches every version spot
+        run: |
+          python3 tests/test_versions.py
+          V=$(python3 -c "import json;print(json.load(open('.claude-plugin/plugin.json'))['version'])")
+          test "v$V" = "${GITHUB_REF_NAME}" || { echo "Tag ${GITHUB_REF_NAME} does not match plugin.json version $V"; exit 1; }
+
+      - name: Fit check tests
+        run: python3 tests/test_fit_check.py
+
+      - name: Release notes from CHANGELOG
+        run: |
+          V="${GITHUB_REF_NAME#v}"
+          awk -v v="$V" '$0 ~ "^## "v"," {f=1; next} /^## / && f {exit} f' CHANGELOG.md > notes.md
+          test -s notes.md || { echo "No CHANGELOG entry for $V"; exit 1; }
+          cat notes.md
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${GITHUB_REF_NAME}" --title "${GITHUB_REF_NAME}" --notes-file notes.md --verify-tag
