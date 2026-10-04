@@ -2,6 +2,15 @@
 
 Each version adds a rule because a real brief broke without it.
 
+## 1.4.0, October 3, 2026
+- **Must-find first, by signal type.** Event, statement, policy, and market data each get up to five items answered before anything else, at most 3 lookups each; "not disclosed" is a valid answer. A 1.3.1 run of the Ford signal never found the $248M Geely paid Ford, so its Cost line read "Ford gives Geely 34%."
+- **Freshness check.** Up to 3 lookups on every pending item, watch date, and the signal itself, from the signal date to today. The same run called a Senate bill "being negotiated" three days after the vote was put off.
+- **Grade-upgrade allowance and a hard cap.** Up to 10 lookups to lift page-1 figures to grade A, two tries each; newest primary source wins a conflict. Whole run capped at 55 lookups.
+- **The alternative is a concrete option with a cost** (close, sell, keep idle, borrow, build alone), never a strategy label.
+- **"What it looks like for you" adapts.** When three or more terms are not disclosed, the section switches to what a smaller company pays under the public rules, or to who the move reaches next.
+- **Claim-vs-record layout** for a statement whose company has taken no dated action: page 1 shows each part of the claim against the dated record.
+- **Fact checker gains three checks:** the Cost line names who pays whom and how much; no must-find answer reads as fact when it is an estimate; no pending item goes out without its freshness result.
+
 ## 1.3.1, October 3, 2026
 - **A picture on page 1.** One bar shows the core proportion at a glance (for Ford, 98,700 cars built against 500,000 of capacity), with a heading that states the takeaway. The Oct 2 Ford brief had one because it was hand-built; the method never asked for it, so later runs came out text only. `bar.py` draws it the same way every time, hatched for estimates, and its numbers come from the ledger so the ledger check traces them.
 

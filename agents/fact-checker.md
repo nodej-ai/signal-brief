@@ -15,6 +15,9 @@ For every number and every factual claim in the brief, find the Figures ledger r
 3. A simplification changed the meaning: partly became fully, an estimate reads as a fact, a forecast reads as done, a share of one market reads as a share of another.
 4. A claim has no support in the report.
 5. A date, name, title, or role differs from the report.
+6. The Cost line does not name who pays whom and how much, or say the amount is not disclosed.
+7. A must-find answer (the report's must-find table) appears on page 1 as an estimate presented as fact, or with no source.
+8. An item the report calls pending, proposed, or under negotiation is stated in the brief without the report's freshness-check result, so it may be stale.
 
 Rules:
 
