@@ -1,6 +1,6 @@
 # NodeJ Signal Brief: four-step research prompt
 
-**Version 1.4.0, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
+**Version 1.4.1, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
 
 Paste this whole file into a chat, or into a Claude Project's instructions, using a model that can browse the web, run code, and (ideally) launch a separate agent. Then type your signal: the headline or one-sentence fact you want researched. You get back a sourced research report and a three-page brief that teaches a smart reader outside the industry what happened, how it works, and what to do about it.
 
@@ -31,7 +31,7 @@ Write for the next step, not for a reader. Dense paragraphs and tables, no polis
 
 If you can launch separate agents, run A to D in parallel, one agent each, and have each write its sections in the final report format so joining them needs no rewriting. Then write the Figures ledger, Estimates, Glossary, and Corrections log yourself with no new lookups. If you cannot launch agents, run A to D in order with the same ceilings.
 
-**Signal type and must-find.** First, name the signal type at the top of the report. Then answer that type's must-find items before anything else, and put them in a must-find table at the top of the report: item, answer, and ledger ID (or "not disclosed"). Spend at most 3 lookups on any one item. After that, "not disclosed" is a valid answer, and the brief says so instead of presenting an estimate as fact.
+**Signal type and must-find.** First, name the signal type at the top of the report. Then answer that type's must-find items before anything else, and put them in a must-find table at the top of the report: item, answer, and ledger ID (or "not disclosed"). Spend at most 3 lookups on any one item. After that, "not disclosed" is a valid answer, and the brief says so instead of presenting an estimate as fact. One exception: the cost of the alternative is never "not disclosed." If no source states it, build an estimate from public inputs (for example, the statutory severance rule times the headcount), label it Est, and put its formula in the Estimates table.
 
 | Type | What it is | Must-find (answer first) |
 |---|---|---|
@@ -40,7 +40,7 @@ If you can launch separate agents, run A to D in parallel, one agent each, and h
 | Policy | A tariff, rule, law, or ruling | 1. The rate or rule, in its own words. 2. Effective date and any change since. 3. Who is exempt. 4. The first enforcement case. 5. What it stacks on or replaces |
 | Market data | A share, price, ranking, or count reaching a level | 1. The exact definition (whole market or one segment) and coverage. 2. The same data series one year earlier. 3. Who publishes it and how often. 4. The driver the publisher names. 5. The nearest competing series and how it differs |
 
-For a statement, research the sections below for the action the statement is about (for example, the partnership behind a chief executive's warning about rivals). If the speaker's company has no concrete, dated action on the subject in the last 12 months, say so at the top of the report; the brief then uses the claim-vs-record layout (Step 2). For market data, use one data series for every point you compare; never mix series.
+For a statement, research the sections below for the action the statement is about (for example, the partnership behind a chief executive's warning about rivals). If the statement is about a tariff, rule, or law, part D also answers the policy must-finds 2 and 3 for that rule: effective date and any change since, and who is exempt. Exemptions are where the record most often breaks from the statement. If the speaker's company has no concrete, dated action on the subject in the last 12 months, say so at the top of the report; the brief then uses the claim-vs-record layout (Step 2). For market data, use one data series for every point you compare; never mix series.
 
 Cover, in this order:
 

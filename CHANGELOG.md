@@ -2,6 +2,11 @@
 
 Each version adds a rule because a real brief broke without it.
 
+## 1.4.1, October 3, 2026
+- **Research parts run on Sonnet; the reader and fact checker are pinned to Sonnet.** Drafting, the report, and fixes stay with the main model. A rerun of the Ford signal finished research in 2.8 minutes on 40 lookups (about 10 minutes before) and hit no eval traps after the freshness check and grade upgrades.
+- **The cost of the alternative is never "not disclosed."** With no stated figure, research builds an estimate from public inputs and shows the formula. The Sonnet rerun stopped at "not disclosed" for the cost of closing Valencia.
+- **Statements about a rule check its exemptions.** Part D answers the policy must-finds for effective date and who is exempt. The rerun missed that Europe's duties exempt plug-in hybrids, the loophole behind most of the Chinese share gain.
+
 ## 1.4.0, October 3, 2026
 - **Must-find first, by signal type.** Event, statement, policy, and market data each get up to five items answered before anything else, at most 3 lookups each; "not disclosed" is a valid answer. A 1.3.1 run of the Ford signal never found the $248M Geely paid Ford, so its Cost line read "Ford gives Geely 34%."
 - **Freshness check.** Up to 3 lookups on every pending item, watch date, and the signal itself, from the signal date to today. The same run called a Senate bill "being negotiated" three days after the vote was put off.
