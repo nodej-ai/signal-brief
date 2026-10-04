@@ -1,6 +1,6 @@
 # NodeJ Signal Brief: four-step research prompt
 
-**Version 1.2.2, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
+**Version 1.3.0, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
 
 Paste this whole file into a chat, or into a Claude Project's instructions, using a model that can browse the web, run code, and (ideally) launch a separate agent. Then type your signal: the headline or one-sentence fact you want researched. You get back a sourced research report and a three-page brief that teaches a smart reader outside the industry what happened, how it works, and what to do about it.
 
@@ -10,11 +10,26 @@ Paste this whole file into a chat, or into a Claude Project's instructions, usin
 
 Run four steps in order. Do not start a step until the one before it is complete and saved. Steps 2 to 4 use only the Step 1 report. No new searching after Step 1.
 
+**File names.** Pick a slug of two to five lowercase words naming the companies and the subject (for example `ford-geely-europe`) and name every file `signal-brief-<slug>-<YYYY-MM-DD>`, shortened below to `<name>`: `<name>-report.md`, `<name>.html`, `<name>.pdf`, `<name>-reader-test.md`, `<name>-fact-check.md`, `<name>-timing.log`.
+
+**Timing.** At the start and end of every step, append one line to `<name>-timing.log`: the current time from the system clock (use code), the step, `start` or `end`, and lookups used so far (a lookup is one web search or one page fetch).
+
 The standard for the finished brief: a senior executive outside this industry reads each page in one minute and can explain the deal to someone else, including why it was done and what it means for them. They never have to ask "I don't get it," "why?", "so what?", or "how did you get that number?"
 
 ## Step 1: Research
 
-Write for the next step, not for a reader. Dense paragraphs and tables, no polish, no length limit.
+Write for the next step, not for a reader. Dense paragraphs and tables, no polish.
+
+**Research to a budget, and stop when done.** Each part below has a lookup ceiling and a "done when" line. Stop a part as soon as its "done when" is met. If it hits its ceiling first, stop, write **GAP** and what is missing, and move on. Never pad. Total budget: about 40 lookups.
+
+| Part | Sections | Ceiling | Done when |
+|---|---|---|---|
+| A. Deals | 1, 7 | 12 | Four to six comparable deals, each with buyer, counterparty, size, term, date, new or existing, from a primary or named source; the normal-company terms are filled |
+| B. Mechanism and money | 2, 3, 4, 5, 6 | 10 | The money walk is complete, every estimate has its inputs, and the alternative is compared line by line |
+| C. History | 8 | 6 | One current everyday version and where it breaks |
+| D. Statements | signal type, 9, 10, 11 | 12 | Three dated "not being said" items, two watch dates, and every quote checked as still true |
+
+If you can launch separate agents, run A to D in parallel, one agent each, and have each write its sections in the final report format so joining them needs no rewriting. Then write the Figures ledger, Estimates, Glossary, and Corrections log yourself with no new lookups. If you cannot launch agents, run A to D in order with the same ceilings.
 
 First, name the signal type at the top of the report. An **event** is something done: a deal, a filing, a launch, a price change. A **statement** is something said: a quote, a forecast, a claim. For a statement, also record who said it, their role, where and to whom, the date, what their company sells or wants that the statement helps, and whether the record supports it. Then research the sections below for the actions the statement is about (for example, the partnerships and tariffs behind a chief executive's warning about rivals).
 
@@ -36,17 +51,21 @@ Cover, in this order:
 Rules for Step 1:
 
 - Every figure carries a source URL and an as-of date. No number without both.
+- **Figures ledger.** Put every figure the brief might print in one table with these columns, in this order: `ID | Figure | Value | Unit | USD | As of | Grade | Source URL | Exact sentence`. ID is F1, F2, and so on. Value and USD are plain numbers with no symbols or commas (221000000, not €221M); USD is blank for figures that are not money. Exact sentence is the sentence from the source, word for word, that contains the figure.
+- **Grade every figure.** A: a primary source (a filing, the company, a regulator, official statistics) or two independent sources that agree. B: one reputable secondary source. C: one weak source, or not verified. Grade C figures never appear in the brief.
+- **Check the current value.** Every figure that could go on page 1 gets a second lookup at its primary source to confirm the value is still current.
+- **Estimates table.** Every computed figure goes in a second table: `ID | Figure | Formula | Result`. ID is E1, E2, and so on. Formula uses ledger IDs and plain numbers only, for example `F3 * 0.288 * 80000`. Result is a plain number.
 - Stamp when each figure was true, not only when it was published. If a price, rate, or term has changed since, show the current value and the date it changed.
 - Where sources disagree, show both and say which you trust and why.
 - If a widely repeated figure cannot be verified, say so. Do not round it into existence.
 - Keep every figure in its original currency. If the figures use any currency other than the reader's (US dollars unless told otherwise), look up one official exchange rate (for example the ECB, or European Central Bank, reference rate), record its source URL and date, and add a conversion table: original, rate, converted. Use that one rate for every figure, even ones published at other dates.
 - Finish with a **Corrections log**: figures you expected to be true that the sources did not support, with what the sources said instead.
 
-Save the result as `report.md`. Then stop researching.
+Save the result as `<name>-report.md`. Then stop researching.
 
 ## Step 2: Draft the brief
 
-Read `report.md`. Write a three-page brief for a senior executive outside this industry who will give each page one minute. Use only what is in the report. If a section has no support in the report, leave it out rather than fill it.
+Read `<name>-report.md`. Write a three-page brief for a senior executive outside this industry who will give each page one minute. Use only what is in the report. If a section has no support in the report, leave it out rather than fill it.
 
 Write in teaching order: what happened, how it works, why they did it, what it costs, the insight, what you do.
 
@@ -94,6 +113,10 @@ Write in teaching order: what happened, how it works, why they did it, what it c
 12. **Three action questions**, each with a "Then:" line.
 13. **One currency: the reader's.** Show every amount in US dollars unless told otherwise, converted at the single rate from the report. State that rate once on the page with its source and date, for example "€1 = $1.1298 (European Central Bank reference rate, Oct 1 2026)." Percentages need no conversion. Never put two currencies side by side for the reader to compare.
 
+14. **Only graded numbers.** Every number on the page comes from the Figures ledger (grade A or B) or the Estimates table. Page 1 uses grade A figures and estimates only. Fewer numbers are better than weaker ones.
+
+**Word budgets.** Write to these limits the first time; they are sized so each page fits without trimming later. Title 6 words. Signal 35. Read 45. Cost 40. Simple version 60. Each money-walk step 18. Each alternative box 5 rows of 6 words. Arithmetic strip 5 inputs. Who-else read 14 per row. Each "not being said" item 45. Twist beats 6 words each. Everyday version 70. Each scenario 35. Each question 25, each "Then:" 20. Each watch item 20.
+
 Also:
 
 - Tag lines in the margin only where the tag helps (Signal, Read, Fact, Est). No tag legend.
@@ -108,11 +131,15 @@ Also:
 - Every visual is drawn with code (SVG or a plotting library).
 - Build a single HTML file with inline CSS and SVG, then render to PDF (a headless browser, WeasyPrint, or a print-to-PDF step). If no PDF renderer is available, return the HTML and say so.
 
-Save the draft as `brief.html` and render `brief-draft.pdf`.
+Save the draft as `<name>.html` and render `<name>.pdf`.
 
-## Step 3: Reader test (runs on every brief)
+## Step 3: Reader test and fact check (run both, at the same time if you can)
 
-Run this as a separate agent if you can launch one. If you cannot, start a fresh pass and do not look at `report.md` during it. The reader sees only the brief text.
+Two separate checks. The reader tests whether the brief is clear. The fact checker tests whether it is true. Run each as a separate agent if you can, in parallel. If you cannot, run the reader first as a fresh pass that does not look at the report, then the fact check.
+
+### The reader
+
+The reader sees only the brief text, never the report.
 
 Give the reader this persona: "You are a smart senior executive outside finance and outside this industry. You have not read the research. You read each page once, in one minute, and you stop wherever you get lost."
 
@@ -134,27 +161,42 @@ Rules for the reader test:
 - Each item names the page, quotes the line, and states the question the reader would ask.
 - The reader also writes, in three sentences, how it would explain the deal to a colleague. If that explanation is wrong or missing the motive, log it as a failure of page 1.
 
-Save the log as `reader-test.md`.
+Save the log as `<name>-reader-test.md`.
+
+### The fact checker
+
+The fact checker sees the brief and the report. For every number and every factual claim in the brief, it finds the ledger row, estimate, or report line behind it and logs each place where:
+
+1. A number has no ledger or estimate row, or does not match it after rounding.
+2. A number comes from a grade C row, or page 1 uses a grade B row.
+3. A simplification changed the meaning (partly became fully, an estimate reads as a fact, a forecast reads as a done deal).
+4. A claim has no support in the report.
+5. A date, name, or role differs from the report.
+
+Each item names the page, quotes the line, and gives the ledger ID or report line it checked. Save it as `<name>-fact-check.md`.
 
 ## Step 4: Fix and fit
 
-For every item in `reader-test.md`:
+For every item in `<name>-reader-test.md` and `<name>-fact-check.md`:
 
-1. Answer it in the brief using only `report.md`. If the report cannot answer it, cut the line that raised it.
+1. Answer it in the brief using only the report. If the report cannot answer it, cut the line that raised it. Fact-check items are fixed or cut, never argued.
 2. After all fixes, check every simplified claim against its line in the report. A plain-English version must still be true (partly off the books stays "partly").
-3. Rebuild and render. Check every page: three pages exactly, nothing overlapping the footer, no type below the sizes above. Cut to fit; never shrink.
-4. Run Step 3 once more on the fixed brief. Fix what it finds. Stop after two reader-test rounds.
+3. Recompute every estimate from its formula and confirm the brief shows the same result after rounding.
+4. Rebuild and render. Check every page: three pages exactly, nothing overlapping the footer, no type below the sizes above. Cut to fit; never shrink.
+5. Run the reader once more only if its three-sentence explanation in round 1 was wrong or missed the motive. Otherwise one round is enough.
 
-Save `reader-test.md` with both rounds and what was changed for each item.
+Add what was changed for each item to `<name>-reader-test.md` and `<name>-fact-check.md`.
 
 ## Deliver
 
-Return four things:
+Return six things:
 
-1. `report.md`
-2. `brief.pdf` (or `brief.html`)
-3. `reader-test.md`, with what each round found and what was changed
-4. A four-line summary: the four most important numbers, one per line, with where each came from
+1. `<name>-report.md`
+2. `<name>.pdf` (or `<name>.html`)
+3. `<name>-reader-test.md`, with what the reader found and what was changed
+4. `<name>-fact-check.md`, with what the fact checker found and what was changed
+5. `<name>-timing.log`
+6. A four-line summary: the four most important numbers, one per line, each with its ledger ID, grade, and source
 
 ---
 

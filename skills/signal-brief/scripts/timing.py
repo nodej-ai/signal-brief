@@ -1,0 +1,42 @@
+#!/usr/bin/env python3
+"""Append one line to a Signal Brief timing log.
+
+Usage:  python3 timing.py <name>-timing.log "Step 1" start [lookups]
+Line format: ISO time<TAB>step<TAB>start|end<TAB>lookups
+With --summary instead of a step, prints minutes per step from the log."""
+import datetime
+import sys
+
+
+def summary(path):
+    starts, rows = {}, []
+    for line in open(path, encoding="utf-8"):
+        parts = line.rstrip("\n").split("\t")
+        if len(parts) < 3:
+            continue
+        t = datetime.datetime.fromisoformat(parts[0])
+        if parts[2] == "start":
+            starts[parts[1]] = t
+        elif parts[2] == "end" and parts[1] in starts:
+            rows.append((parts[1], (t - starts[parts[1]]).total_seconds() / 60, parts[3] if len(parts) > 3 else ""))
+    total = sum(m for _, m, _ in rows)
+    for step, mins, lk in rows:
+        print(f"{step:28} {mins:5.1f} min  {lk and lk + ' lookups'}")
+    print(f"{'Total':28} {total:5.1f} min")
+
+
+def main():
+    if len(sys.argv) >= 3 and sys.argv[2] == "--summary":
+        summary(sys.argv[1])
+        return
+    if len(sys.argv) < 4 or sys.argv[3] not in ("start", "end"):
+        print(__doc__)
+        sys.exit(2)
+    now = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
+    lookups = sys.argv[4] if len(sys.argv) > 4 else ""
+    with open(sys.argv[1], "a", encoding="utf-8") as f:
+        f.write(f"{now}\t{sys.argv[2]}\t{sys.argv[3]}\t{lookups}\n")
+
+
+if __name__ == "__main__":
+    main()

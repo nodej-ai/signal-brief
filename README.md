@@ -1,6 +1,6 @@
 # NodeJ Signal Brief
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.2.2](https://img.shields.io/badge/version-1.2.2-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.3.0](https://img.shields.io/badge/version-1.3.0-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
 
 A four-step prompt that turns one news signal into a sourced research report and a three-page brief a busy executive can read in three minutes.
 
@@ -12,18 +12,22 @@ If this helps, star the repo so others can find it.
 
 ## What you get
 
+Files are named `signal-brief-<slug>-<date>`, for example `signal-brief-ford-geely-europe-2026-10-03.pdf`.
+
 | Output | What it is |
 |---|---|
-| `report.md` | The research: deal map, how it works, the money step by step, the alternative, who pays and who gains, history, what is not being said, watch list, quote bank, glossary, corrections log. Every figure has a source and a date. |
-| `brief.pdf` | Three pages. Page 1 teaches how the deal works and why. Page 2 shows who else is doing it and what it means for you. Page 3 has the twist, the history, three questions for an executive, and what to watch. |
-| `reader-test.md` | A separate reader who never saw the research flags every place they got lost. The brief is fixed and tested twice. |
+| `...-report.md` | The research: deal map, how it works, the money step by step, the alternative, who pays and who gains, history, what is not being said, watch list, quote bank, glossary, corrections log. Every figure sits in a Figures ledger with its source, date, grade, and the exact sentence it came from. |
+| `....pdf` | Three pages. Page 1 teaches how the deal works and why. Page 2 shows who else is doing it and what it means for you. Page 3 has the twist, the history, three questions for an executive, and what to watch. |
+| `...-reader-test.md` | A separate reader who never saw the research flags every place they got lost. |
+| `...-fact-check.md` | A separate fact checker matches every number and claim in the brief to the research. |
+| `...-timing.log` | How long each step took and how many lookups it used. |
 
 ## The four steps
 
-1. **Research.** Gather everything, with a source and date on every number. No polish.
-2. **Draft.** Write the brief from the research only, in teaching order: what happened, how it works, why, what it costs, what you do.
-3. **Reader test.** A fresh reader, playing an executive from outside the industry, logs every "I don't get it," "why?" and "so what?"
-4. **Fix and fit.** Answer every item from the research or cut the line. Retest once. Three pages exactly.
+1. **Research.** Four parts with a lookup budget each, stopping when each part is done. Every number goes in a ledger with a source, a date, a grade, and the exact sentence behind it.
+2. **Draft.** Write the brief from the research only, in teaching order: what happened, how it works, why, what it costs, what you do. Page 1 uses only the strongest figures.
+3. **Reader test and fact check.** A fresh reader logs every "I don't get it," "why?" and "so what?" A fact checker logs every number or claim the research does not support.
+4. **Fix and fit.** Answer every item from the research or cut the line. Recompute every estimate. Three pages exactly.
 
 ## Why four steps
 
@@ -68,6 +72,9 @@ The plugin reads the same prompt file as this repo, so the two never drift. On t
 | `skills/signal-brief/assets/template.html` | A three-page US Letter layout with every section in place, so the model writes content, not CSS |
 | `skills/signal-brief/scripts/fit_check.py` | Checks the finished PDF: exactly three pages, no type under 8 point (footer 7.5), the method credit on every page, nothing over the footer. The brief ships only on PASS |
 | `skills/signal-brief/scripts/render.py` | Turns the HTML into a PDF and warns when a page overflows |
+| `skills/signal-brief/scripts/ledger_check.py` | Checks that every number in the brief traces to the research ledger, every estimate recomputes from its formula, and page 1 uses only top-grade figures |
+| `skills/signal-brief/scripts/timing.py` | Writes the timing log and prints minutes per step |
+| `agents/fact-checker.md` | The Step 3 fact checker as its own agent, run alongside the reader (Claude Code and Cowork) |
 | `agents/reader.md` | The Step 3 reader as its own agent, given only the brief, never the research (Claude Code and Cowork; chat uses a fresh pass) |
 
 ## Examples

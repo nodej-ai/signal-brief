@@ -2,6 +2,13 @@
 
 Each version adds a rule because a real brief broke without it.
 
+## 1.3.0, October 3, 2026
+- **Every number traces.** The research keeps a Figures ledger: value, source, date, grade, and the exact sentence each figure came from. Estimates carry a formula. `ledger_check.py` fails the brief if a printed number has no ledger row, an estimate does not recompute, or page 1 uses anything below the top grade. Two runs of the Ford signal produced closure costs that barely overlapped; a recomputed formula would have caught it.
+- **A fact checker beside the reader.** The reader tests clarity, the fact checker tests truth. They run at the same time, and the reader runs one round unless its explanation of the deal was wrong.
+- **Research to a budget.** Four parts, about 40 lookups in all, each stopping when its "done when" line is met. The first measured run used about 350 lookups and 27 minutes.
+- **Word budgets per section**, so pages fit on the first render instead of after five rounds of trimming.
+- **Named files and a timing log**: `signal-brief-<slug>-<date>`, plus minutes and lookups per step.
+
 ## 1.2.2, October 3, 2026
 - **Skill renamed to signal-brief.** It installed as "brief," which says nothing in a list of skills. In claude.ai pick **signal-brief** from the `/` menu; in Claude Code run `/signal-brief:signal-brief`.
 

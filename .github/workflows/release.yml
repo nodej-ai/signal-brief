@@ -28,8 +28,10 @@ jobs:
           V=$(python3 -c "import json;print(json.load(open('.claude-plugin/plugin.json'))['version'])")
           test "v$V" = "${GITHUB_REF_NAME}" || { echo "Tag ${GITHUB_REF_NAME} does not match plugin.json version $V"; exit 1; }
 
-      - name: Fit check tests
-        run: python3 tests/test_fit_check.py
+      - name: Check script tests
+        run: |
+          python3 tests/test_fit_check.py
+          python3 tests/test_ledger_check.py
 
       - name: Release notes from CHANGELOG
         run: |
