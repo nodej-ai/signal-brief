@@ -88,7 +88,66 @@ def main():
     ok = code == 0
     failed += not ok
     print(("ok   " if ok else "FAIL ") + f"grade B on page 2 passes (exit {code})")
-    total = len(CASES) + 2
+    # grade R: the signal's headline figure from one original report
+    rled = LEDGER.replace("| F7 | Assumed customs value | 25800 | USD | 25800 | 2026-10-01 | B |",
+                          "| F7 | Reported deal size | 25800 | USD | 25800 | 2026-10-01 | R:FT |")
+    code, out = run(rled, None, ".pdf", pdf_pages=["Geely pays $248M. The FT reports a $25,800 figure.", "Footer"])
+    ok = code == 0
+    failed += not ok
+    print(("ok   " if ok else "FAIL ") + f"grade R named on page 1 passes (exit {code})")
+    if not ok:
+        print(out)
+    code, out = run(rled, None, ".pdf", pdf_pages=["Geely pays $248M. A $25,800 figure.", "Footer"])
+    ok = code == 1 and "grade R" in out
+    failed += not ok
+    print(("ok   " if ok else "FAIL ") + f"grade R unnamed on page 1 fails (exit {code})")
+    noout = rled.replace("R:FT", "R")
+    code, out = run(noout, None, ".pdf", pdf_pages=["Geely pays $248M.", "A $25,800 figure."])
+    ok = code == 1 and "must name its outlet" in out
+    failed += not ok
+    print(("ok   " if ok else "FAIL ") + f"grade R without outlet fails (exit {code})")
+    many = rled
+    for fid in ("F2", "F4", "F5"):
+        many = many.replace(f"| {fid} |", f"| {fid} |", 1)
+    many = many.replace("| 2025-12-31 | A | https://example.com/a |", "| 2025-12-31 | R:Reuters | https://example.com/a |")
+    many = many.replace("| 2026-07-23 | A | https://example.com/b |", "| 2026-07-23 | R:Reuters | https://example.com/b |")
+    many = many.replace("| 2025-12-31 | A | https://example.com/c |", "| 2025-12-31 | R:Reuters | https://example.com/c |")
+    many = many.replace("| 2026-01-01 | A | https://example.com/d |", "| 2026-01-01 | R:Reuters | https://example.com/d |")
+    many = many.replace("| 2026-07-23 | A | https://example.com/f |", "| 2026-07-23 | R:Reuters | https://example.com/f |")
+    code, out = run(many, GOOD + " Reuters.", ".txt")
+    ok = code == 1 and "at most 5" in out
+    failed += not ok
+    print(("ok   " if ok else "FAIL ") + f"more than 5 grade R rows fails (exit {code})")
+    # v1.5.2: outlet must sit in the same sentence, not just nearby
+    code, out = run(rled, None, ".pdf", pdf_pages=["The FT broke the story. Separately, a $25,800 figure.", "Footer"])
+    ok = code == 1 and "same sentence" in out
+    failed += not ok
+    print(("ok   " if ok else "FAIL ") + f"grade R named in another sentence fails (exit {code})")
+    code, out = run(rled, None, ".pdf", pdf_pages=["A price of about $25,800, per the\nFT, was reported.", "Footer"])
+    ok = code == 0
+    failed += not ok
+    print(("ok   " if ok else "FAIL ") + f"grade R named across a line break passes (exit {code})")
+    if not ok:
+        print(out)
+    # v1.5.2: date ranges, decades, 24/7 and identifiers are not figures
+    frag = GOOD + " Season 2025-26 and 2028/29, the 1950s-60s, runs 24/7, docket ER26-3380, from 2020-24."
+    code, out = run(LEDGER, frag, ".txt")
+    ok = code == 0
+    failed += not ok
+    print(("ok   " if ok else "FAIL ") + f"date and docket fragments are ignored (exit {code})")
+    if not ok:
+        print(out)
+    code, out = run(LEDGER, GOOD + " Output rose 26 points.", ".txt")
+    ok = code == 1
+    failed += not ok
+    print(("ok   " if ok else "FAIL ") + f"a real untraced 26 still fails (exit {code})")
+    code, out = run(rled, None, ".pdf", pdf_pages=["A $25,800 price, per the FT. Step 1: $25,800.", "Footer"])
+    ok = code == 0
+    failed += not ok
+    print(("ok   " if ok else "FAIL ") + f"grade R repeat after a named first mention passes (exit {code})")
+    if not ok:
+        print(out)
+    total = len(CASES) + 11
     print(f"\n{total - failed}/{total} passed")
     sys.exit(1 if failed else 0)
 

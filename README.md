@@ -1,6 +1,6 @@
 # NodeJ Signal Brief
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.5.0](https://img.shields.io/badge/version-1.5.0-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.5.3](https://img.shields.io/badge/version-1.5.3-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
 
 A four-step prompt that turns one news signal into a sourced research report and a three-page brief a busy executive can read in three minutes.
 
@@ -83,9 +83,9 @@ The plugin reads the same prompt file as this repo, so the two never drift. On t
 | Brief | Signal |
 |---|---|
 | [Partner in Europe, wall off America](examples/nodej-signal-brief-ford-china-europe-2026-10-03.pdf) | Ford CEO Jim Farley's Sep 29, 2026 remark that Europe is "too late" to hold off Chinese carmakers while the US must be careful, and Ford partnering with Geely at its Valencia plant |
-| [Amazon is shopping for lenders](examples/nodej-signal-brief-amazon-leaseback-2026-10-02.pdf) | Amazon in talks to move about $8 billion of AI chips off its balance sheet |
-| [Apple is financing the refresh](examples/nodej-signal-brief-chromebook-to-apple-2026-10-02.pdf) | A Texas school district swaps Chromebooks for Apple |
-| [The anchor tenant returns](examples/nodej-signal-brief-power-deals-2026-10-01.pdf) | Meta signs 20-year nuclear power deals |
+| [Sell $8 billion, could run $16 billion](examples/nodej-signal-brief-amazon-chip-leaseback-2026-10-05.pdf) | Amazon in talks to sell about $8 billion of Nvidia chips to an investor-funded vehicle and rent them back; says what the deal does, with no guessed motive |
+| [Four-year Apple lease replaces school Chromebooks](examples/nodej-signal-brief-chromebook-to-apple-2026-10-05.pdf) | A Texas school district leases 14,585 Apple devices at 0% on laptops; shows grade R covering a deal's own terms |
+| [Meta pays for running reactors' output](examples/nodej-signal-brief-meta-nuclear-power-deals-2026-10-05.pdf) | Meta's 20-year nuclear contracts with Constellation and Vistra; shows the signal check (the deals were 2025 and early 2026, not new) and an analyst estimate of an undisclosed price |
 | [Banned before it arrived](examples/nodej-signal-brief-maryland-grocery-pricing-2026-10-04.pdf) | Maryland's ban on personal-data pricing at large grocers and delivery apps; shows the state comparison grid and "What each side leaves out" |
 | [The yield was their own money](examples/nodej-signal-brief-ahp-hotel-reit-chapter11-2026-10-04.pdf) | Two retail-funded REITs holding Hilton- and Marriott-branded hotel stakes file Chapter 11 after an SEC settlement |
 

@@ -1,6 +1,6 @@
 # NodeJ Signal Brief: four-step research prompt
 
-**Version 1.5.0, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
+**Version 1.5.3, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
 
 Paste this whole file into a chat, or into a Claude Project's instructions, using a model that can browse the web, run code, and (ideally) launch a separate agent. Then type your signal: the headline or one-sentence fact you want researched. You get back a sourced research report and a three-page brief that teaches a smart reader outside the industry what happened, how it works, and what to do about it.
 
@@ -14,7 +14,7 @@ Run four steps in order. Do not start a step until the one before it is complete
 
 **Timing.** At the start and end of every step, append one line to `<name>-timing.log`: the current time from the system clock (use code), the step, `start` or `end`, and lookups used so far (a lookup is one web search or one page fetch).
 
-The standard for the finished brief: a senior executive outside this industry reads each page in one minute and can explain the deal to someone else, including why it was done and what it means for them. They never have to ask "I don't get it," "why?", "so what?", or "how did you get that number?"
+The standard for the finished brief: a senior executive outside this industry reads each page in one minute and can explain the deal to someone else, including what it does for each side and what it means for them. They never have to ask "I don't get it," "so what?", or "how did you get that number?"
 
 ## Step 1: Research
 
@@ -27,9 +27,11 @@ Write for the next step, not for a reader. Dense paragraphs and tables, no polis
 | A. Deals | 1, 7 | 12 | Four to six comparable deals, each with buyer, counterparty, size, term, date, new or existing, from a primary or named source; the normal-company terms are filled |
 | B. Mechanism and money | 2, 3, 4, 5, 6 | 10 | The must-find items are answered or marked not disclosed, the money walk is complete, every estimate has its inputs, and the alternative is compared line by line |
 | C. History | 8 | 6 | One current everyday version and where it breaks |
-| D. Statements | signal type, 9, 10, 11 | 12 | Three dated "not being said" items, two watch dates, and every quote checked as still true |
+| D. Statements | signal check, signal type, 9, 10, 11 | 12 | The signal is confirmed or corrected, three dated "not being said" items, two watch dates, and every quote checked as still true |
 
 If you can launch separate agents, run A to D in parallel, one agent each, and have each write its sections in the final report format so joining them needs no rewriting. Then write the Figures ledger, Estimates, Glossary, and Corrections log yourself with no new lookups. If you cannot launch agents, run A to D in order with the same ceilings.
+
+**Confirm the signal.** Part D spends its first 2 lookups checking the signal's date, parties, and headline figure at the original report. If any of them is wrong (an old deal resurfacing as news, a misdated announcement, a figure that grew in the retelling), the record wins: open the report with "Signal as given" and "Signal as found," write the brief's Signal line from the found version, and log the difference in the Corrections log. If the event did not happen at all, stop and tell the user before Step 2.
 
 **Signal type and must-find.** First, name the signal type at the top of the report. Then answer that type's must-find items before anything else, and put them in a must-find table at the top of the report: item, answer, and ledger ID (or "not disclosed"). Spend at most 3 lookups on any one item. After that, "not disclosed" is a valid answer, and the brief says so instead of presenting an estimate as fact. One exception: the cost of the alternative is never "not disclosed." If no source states it, build an estimate from public inputs (for example, the statutory severance rule times the headcount), label it Est, and put its formula in the Estimates table.
 
@@ -48,7 +50,7 @@ Cover, in this order:
 2. **Mechanism in plain English.** How the deal works, written so a non-specialist can follow it: who owns what before and after, where the money goes, who carries which risk, what triggers payment, what happens if either side walks. Include an everyday analogy (for example, a sale-leaseback of a building).
 3. **Money walk.** The deal as numbered steps with dollar amounts: before, deal day, what the cash is used for, each year, the end. Where terms are not public, estimate them, label them Est, and show the arithmetic as an addition column (one line per input, then the total).
 4. **The obvious alternative.** What the company would have done with the same asset or decision if this deal had not happened: close it, sell it, keep it idle, borrow, or build alone. Pick a concrete option with a cost, never a strategy label like "compete harder." For a statement, it is the concrete action the opposite stance would require. Compare the same five or six lines side by side: cash in or out, debt on the books, who funds it, what is owned, who carries the risk.
-5. **The why ladder.** Why the company does this. Ask "why?" at least three times until you reach a concrete reason backed by a number (for example: lenders near their limit for one company, order books shrinking, room saved for next year). Note the cost of the move against the alternative.
+5. **What it does, then why.** First state what the move does for each side in plain arithmetic (for example: sell $8B of chips and keep using them, get $8B back to buy as many again). Then the stated reasons: a motive counts only when a party says it on the record; quote it with its source and mark it FACT. Anything else is READ. Test every candidate motive against the record: if the company could get the same thing the obvious way more cheaply (for example, a top-rated borrower raising cash), the motive is not need. A number offered as a reason must drive the decision, not merely match it in size. Note the cost of the move against the alternative.
 6. **Who pays, who gains.** By group: the buyer, the counterparty, the regulator, the public. Mark every line FACT (a number with a source) or READ (your interpretation).
 7. **What it looks like for a normal company.** The terms a non-giant would face if they tried the same thing: minimums, deposits, contract length, exit penalties, borrowing rates by credit quality. If three or more of those would be "not disclosed," research instead what a smaller company pays or must do under the public rules the signal touches: duties, filings, deadlines, penalties, borrowing rates. If no smaller-company version exists (for example, a sovereign policy), research who the move reaches next: suppliers, customers, or the reader's own sector.
 8. **History.** If the practice is common, use today's everyday version (who does this routinely now). Add the closest older case only if it teaches something the current version does not. Figures, dates, how it ended, and where the analogy breaks.
@@ -61,7 +63,7 @@ Rules for Step 1:
 
 - Every figure carries a source URL and an as-of date. No number without both.
 - **Figures ledger.** Put every figure the brief might print in one table with these columns, in this order: `ID | Figure | Value | Unit | USD | As of | Grade | Source URL | Exact sentence`. ID is F1, F2, and so on. Value and USD are plain numbers with no symbols or commas (221000000, not €221M); USD is blank for figures that are not money. Exact sentence is the sentence from the source, word for word, that contains the figure.
-- **Grade every figure.** A: a primary source (a filing, the company, a regulator, official statistics) or two independent sources that agree. B: one reputable secondary source. C: one weak source, or not verified. Grade C figures never appear in the brief.
+- **Grade every figure.** A: a primary source (a filing, the company, a regulator, official statistics) or two independent sources that agree. B: one reputable secondary source. C: one weak source, or not verified. Grade C figures never appear in the brief. Several outlets repeating one original report are one source, never two. R (reported): the signal's own headline figure when only one original report exists, as with a scoop. Write the grade as R plus the original outlet, for example `R:FT`. R also covers a named analyst's estimate of a must-find term the parties did not disclose, such as a bank's estimate of a contract price, written `R:Jefferies`. At most five R rows, and only for the signal's own facts from that original report: its price, size, parties, counts, and its terms (interest rate, length, fees, buyback or residual price), or for an analyst's estimate of an undisclosed term. When more than five qualify, give R to the five page 1 needs most and grade the rest B; every other figure takes A, B, or C.
 - **Check the current value.** Every figure that could go on page 1 is confirmed current at its primary source, inside the grade-upgrade allowance below.
 - **Estimates table.** Every computed figure goes in a second table: `ID | Figure | Formula | Result`. ID is E1, E2, and so on. Formula uses ledger IDs and plain numbers only, for example `F3 * 0.288 * 80000`. Result is a plain number.
 - Stamp when each figure was true, not only when it was published. If a price, rate, or term has changed since, show the current value and the date it changed.
@@ -76,20 +78,22 @@ Rules for Step 1:
 
 **Lookup cap.** Stop all searching at 55 lookups, whatever is left, and record the total in the timing log.
 
+**Answer key.** End the report with three sentences, written from the record: what happened, how it works, and what it does for each side (a motive only if a party stated it). The reader's page-1 explanation is scored against this key.
+
 Save the result as `<name>-report.md`. Then stop researching.
 
 ## Step 2: Draft the brief
 
 Read `<name>-report.md`. Write a three-page brief for a senior executive outside this industry who will give each page one minute. Use only what is in the report. If a section has no support in the report, leave it out rather than fill it.
 
-Write in teaching order: what happened, how it works, why they did it, what it costs, the insight, what you do.
+Write in teaching order: what happened, how it works, what it does for each side, what it costs, the insight, what you do.
 
 ### Page 1: the learning
 
 - A small brand line at the top (use "Signal Brief" unless told otherwise), then the date.
 - **Title.** The read, not the topic. Six words or fewer.
 - **Signal.** One sentence: what happened. For a statement, name the speaker, their role, and the date, and let the Read say what the statement does for the speaker.
-- **Read.** The motive in plain words, one or two sentences a non-expert understands on first read. Answer "why would they do this?"
+- **Read.** What the move does for the company and the other side, in plain words and plain arithmetic, one or two sentences a non-expert understands on first read. Give a motive only when a party states it on the record, and name who said it. Never build a storyline to supply a reason.
 - **Cost.** One or two sentences: what the move costs against the obvious alternative. Name who pays whom and how much, or say the amount is not disclosed.
 - **The simple version.** Two or three sentences explaining the mechanism, with the everyday analogy.
 - **The picture.** One bar that shows the core proportion at a glance: used against capacity, part against whole, or before against after. Both numbers come from the Figures ledger or Estimates. Its heading states the takeaway in eight words or fewer (for example "Four in five slots sit empty"). Draw an estimate hatched, never solid.
@@ -118,9 +122,9 @@ Write in teaching order: what happened, how it works, why they did it, what it c
 ### Rules for Step 2
 
 1. **Mechanism before meaning.** The reader must understand how the deal works before any analysis.
-2. **Motive first.** The Read answers "why would they do this?" in plain words.
+2. **What it does, not a guessed why.** The Read says what the move does for each side. A motive appears only when someone on the record states it.
 3. **Show the alternative.** Every move is compared with the obvious thing the company could have done instead.
-4. **Reasons go to the bottom.** Never stop at "new lenders" or "cleaner books." Say why that matters, with a number.
+4. **Consequences go to the bottom.** Never stop at "new lenders" or "cleaner books." Say what that changes, with a number. A number placed next to a reason must cause it, not just match it in size.
 5. **Every insight ends with a consequence**, written without a label.
 6. **No reader math.** Show both numbers instead of "doubled" or "up 99%." Use one rounding for each figure everywhere it appears. Show the arithmetic for any computed figure.
 7. **Spell out every abbreviation** in brackets the first time it appears, for example SOFR (Secured Overnight Financing Rate). Define technical terms in plain words.
@@ -131,9 +135,10 @@ Write in teaching order: what happened, how it works, why they did it, what it c
 12. **Three action questions**, each with a "Then:" line.
 13. **One currency: the reader's.** Show every amount in US dollars unless told otherwise, converted at the single rate from the report. State that rate once on the page with its source and date, for example "€1 = $1.1298 (European Central Bank reference rate, Oct 1 2026)." Percentages need no conversion. Never put two currencies side by side for the reader to compare.
 
-14. **Only graded numbers.** Every number on the page comes from the Figures ledger (grade A or B) or the Estimates table. Page 1 uses grade A figures and estimates only. Fewer numbers are better than weaker ones.
+14. **Only graded numbers.** Every number on the page comes from the Figures ledger (grade A, B, or R) or the Estimates table. Page 1 uses grade A figures, estimates, and grade R figures only when the original outlet is named in the same sentence as the figure's first mention on page 1 (for example "$8 billion, per the FT"). A number written in words ("interest-free", "a quarter", "half") counts as that number and follows the same grade rule. Fewer numbers are better than weaker ones.
+15. **Page 1 stands alone.** Someone who reads only page 1 can say what happened, how it works, and what it does for each side. If pages 2 or 3 hold something one of those needs (a competing bid, the price, a stated reason), move it to page 1. Give any large quantity a scale the reader already knows (homes powered, share of the company's yearly spending). When two figures near each other measure similar things, say what each includes (rent covers repayment and interest; interest alone does not). When the price is not disclosed but a named analyst estimates it, page 1 says both: "not disclosed; Jefferies estimates about $70 per MWh."
 
-**Word budgets.** Write to these limits the first time; they are sized so each page fits without trimming later. Title 6 words. Signal 35. Read 45. Cost 40. Simple version 60. Picture heading 8. Each money-walk step 18. Each alternative box 5 rows of 6 words. Arithmetic strip 5 inputs. Who-else read 14 per row. Each "not being said" item 45. Each "leaves out" row 45. Claim-vs-record rows 20 words each. Twist beats 6 words each. Everyday version 70. Each question 25, each "Then:" 20. Each watch item 20.
+**Word budgets.** Write to these limits the first time; they are sized so each page fits without trimming later. Title 6 words. Signal 35. Read 50. Cost 40. Simple version 60. Picture heading 8. Each money-walk step 18. Each alternative box 5 rows of 6 words. Arithmetic strip 5 inputs. Who-else read 14 per row. Each "not being said" item 45. Each "leaves out" row 45. Claim-vs-record rows 20 words each. Twist beats 6 words each. Everyday version 70. Each question 25, each "Then:" 20. Each watch item 20.
 
 Also:
 
@@ -153,7 +158,7 @@ Save the draft as `<name>.html` and render `<name>.pdf`.
 
 ## Step 3: Reader test and fact check (run both, at the same time if you can)
 
-Two separate checks. The reader tests whether the brief is clear. The fact checker tests whether it is true. Run each as a separate agent if you can, in parallel. If you cannot, run the reader first as a fresh pass that does not look at the report, then the fact check.
+Two separate checks. The reader tests whether the brief is clear. The fact checker tests whether it is true. Run each as a separate agent if you can, in parallel, launched by whoever holds the whole run. A reader test the drafter runs on its own draft is not a reader test: if you are drafting inside an agent that cannot launch another, stop after Step 2 and hand the files back so the main conversation runs Steps 3 and 4. In a plain chat with no agents, run the reader first as a fresh pass that does not look at the report, then the fact check, and mark the reader test "not independent."
 
 ### The reader
 
@@ -164,7 +169,7 @@ Give the reader this persona: "You are a smart senior executive outside finance 
 The reader logs every place where it:
 
 1. Does not understand how the deal works ("I don't get it").
-2. Does not see why the company did it ("why?").
+2. Does not see what the move does for the company or the other side ("so it gets what?").
 3. Sees a fact but not what it means for them ("so what?").
 4. Has to do arithmetic, convert a currency, or can misread a number ("doubled from what?").
 5. Meets an abbreviation or term that is not explained.
@@ -177,7 +182,8 @@ Rules for the reader test:
 
 - Log at least five items. If the reader finds fewer than five, the test fails: rerun with the instruction to read more skeptically.
 - Each item names the page, quotes the line, and states the question the reader would ask.
-- The reader also writes, in three sentences, how it would explain the deal to a colleague. If that explanation is wrong or missing the motive, log it as a failure of page 1.
+- The reader reads page 1 alone first (give it page 1 as its own file) and writes, in three sentences, how it would explain the deal to a colleague: what happened, how it works, and what it does for each side. Only then does it read pages 2 and 3.
+- **Score page 1 against the answer key**, not the reader's opinion. Whoever runs the check compares each of the three sentences with the report's answer key and marks it right, wrong, or missing. Page 1 passes when all three are right. The reader's other complaints go to the log and are fixed in Step 4, but they do not decide the verdict.
 
 Save the log as `<name>-reader-test.md`.
 
@@ -190,7 +196,7 @@ The fact checker sees the brief and the report. For every number and every factu
 3. A simplification changed the meaning (partly became fully, an estimate reads as a fact, a forecast reads as a done deal).
 4. A claim has no support in the report.
 5. A date, name, or role differs from the report.
-6. The Cost line does not name who pays whom and how much, or say the amount is not disclosed.
+6. The Cost line does not name who pays whom and how much, or say the amount is not disclosed. Page 1 calls a term "not disclosed" while the report holds a named analyst's estimate of it.
 7. A must-find answer on page 1 is an estimate presented as fact, or has no source.
 8. An item the report calls pending is stated without the freshness-check result, so it may be stale.
 
@@ -204,7 +210,7 @@ For every item in `<name>-reader-test.md` and `<name>-fact-check.md`:
 2. After all fixes, check every simplified claim against its line in the report. A plain-English version must still be true (partly off the books stays "partly").
 3. Recompute every estimate from its formula and confirm the brief shows the same result after rounding.
 4. Rebuild and render. Check every page: three pages exactly, nothing overlapping the footer, no type below the sizes above. Cut to fit; never shrink.
-5. Run the reader once more only if its three-sentence explanation in round 1 was wrong or missed the motive. Otherwise one round is enough.
+5. If the answer-key score has a wrong or missing sentence, fix page 1 and run a fresh reader (a new agent) on the new brief, at most two reruns. If it still fails, deliver and say which sentence page 1 cannot carry.
 
 Add what was changed for each item to `<name>-reader-test.md` and `<name>-fact-check.md`.
 
@@ -217,7 +223,7 @@ Return six things:
 3. `<name>-reader-test.md`, with what the reader found and what was changed
 4. `<name>-fact-check.md`, with what the fact checker found and what was changed
 5. `<name>-timing.log`, ending with the lookup total against the 55 cap
-6. A four-line summary: the four most important numbers, one per line, each with its ledger ID, grade, and source
+6. A four-line summary: the four most important numbers, one per line, each with its ledger ID, grade, and source; then the answer-key score (what, how, what it does: right, wrong, or missing)
 
 ---
 

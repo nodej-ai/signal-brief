@@ -11,7 +11,11 @@ Checks:
   2. Trace: every number printed in the brief matches a ledger Value or USD, or an estimate Result,
      at the precision the brief shows it (or within 1%).
   3. Grades: no brief number traces only to a grade C figure; page 1 (PDF only) uses grade A or estimates.
-Ignored: years (1900-2100 with no $ or %), numbers under 10 with no $ or %, and day numbers next to a month.
+     Grade R ("reported", written R:<outlet>, e.g. R:FT) is the signal's own headline figure from one original
+     report, or a named analyst's estimate of an undisclosed term (R:Jefferies). It counts as grade B, and it may
+     also sit on page 1 if <outlet> is named in the same sentence as its first mention on page 1. At most 5 grade R rows.
+Ignored: years (1900-2100 with no $ or %), numbers under 10 with no $ or %, day numbers next to a month,
+year ranges and decades (2025-26, 2028/29, 1950s-60s), 24/7, "12 months", and identifiers (ER26-3380, A320).
 Exit 0 = pass, 1 = fail (reasons printed), 2 = could not read the inputs.
 """
 import ast
@@ -62,8 +66,10 @@ def load_report(md):
                 if not r or not re.match(r"^F\d+$", r[0]):
                     continue
                 g = lambda name: r[col[name]] if name in col and col[name] < len(r) else ""
+                raw = g("grade").strip()
                 ledger[r[0]] = {"value": num(g("value")), "usd": num(g("usd")),
-                                "grade": g("grade").upper()[:1], "figure": g("figure")}
+                                "grade": raw.upper()[:1], "figure": g("figure"),
+                                "outlet": raw.split(":", 1)[1].strip() if ":" in raw else ""}
         elif head[:4] == ["id", "figure", "formula", "result"]:
             for r in rows:
                 if r and re.match(r"^E\d+$", r[0]) and len(r) >= 4:
@@ -121,14 +127,40 @@ def brief_numbers(text):
         if not cur and not pct:
             if "," not in raw and "." not in raw and 1900 <= v <= 2100:
                 continue
+            ns = m.start("n")
+            prev, nxt, tight = text[ns - 1:ns], text[m.end():m.end() + 1], text[max(0, ns - 12):ns]
+            if prev.isalpha() or re.search(r"[A-Za-z]{1,4}\d+[-/]$", tight):
+                continue  # identifier: ER26, ER26-3380, A320
+            if re.search(r"(?:19|20)\d{2}s?[-/\u2013]$", tight):
+                continue  # second half of a year range: 2025-26, 2028/29, 1950s-60s
+            if nxt == "s" and v % 10 == 0 and v < 100:
+                continue  # decade: 60s
+            if raw == "24" and text[m.end():m.end() + 2] == "/7":
+                continue
+            if raw == "12" and re.match(r"^[\s-]?months?\b", text[m.end():m.end() + 8].lower()):
+                continue  # "12 months to June 30" is a reporting period
             if v < 10:
                 continue
             if re.search(MONTHS + r"\s*$", before) or re.match(r"^\s*" + MONTHS, after):
                 continue
         decimals = len(raw.split(".")[1]) if "." in raw else 0
-        out.append({"text": m.group(0).strip(), "value": v, "scale": SCALE.get(sc, 1),
+        out.append({"text": m.group(0).strip(), "value": v, "scale": SCALE.get(sc, 1), "pos": m.start(),
                     "decimals": decimals, "money": bool(cur), "pct": bool(pct)})
     return out
+
+
+def squash(t):
+    return re.sub(r"\s+", " ", t).strip().lower()
+
+
+def sentence(text, pos, cap=300):
+    """The sentence holding pos (capped at cap characters each side), whitespace collapsed, lower case.
+    A full stop between two digits is a decimal point, not a sentence end."""
+    ends = [m.end() for m in re.finditer(r"(?<!\d)[.!?](?=\s)|[.!?](?=\s+[A-Z])|\n\s*\n", text[:pos])]
+    start = max([max(0, pos - cap)] + ends)
+    m = re.search(r"(?<!\d)[.!?](?=\s|$)|\n\s*\n", text[pos:pos + cap])
+    end = pos + (m.end() if m else cap)
+    return squash(text[start:end])
 
 
 def matches(b, c):
@@ -166,6 +198,13 @@ def main():
             fails.append(f"{eid} ({e['figure']}): formula gives {got:,.4g} but Result says {e['result']}")
         names[eid] = got
 
+    r_rows = [fid for fid, f in ledger.items() if f["grade"] == "R"]
+    if len(r_rows) > 5:
+        fails.append(f"{len(r_rows)} grade R rows ({', '.join(r_rows)}); at most 5 (the signal's own headline figures)")
+    for fid in r_rows:
+        if not ledger[fid]["outlet"]:
+            fails.append(f"{fid}: grade R must name its outlet, e.g. R:FT")
+    outlet = {fid: f["outlet"] for fid, f in ledger.items()}
     pool = []
     for fid, f in ledger.items():
         for v in (f["value"], f["usd"]):
@@ -177,7 +216,7 @@ def main():
         for const in re.findall(r"(?<![A-Z\d.])\d+(?:\.\d+)?", e["formula"].replace(",", "")):
             pool.append((f"{eid} input", "E", float(const)))
 
-    traced = 0
+    traced, named = 0, set()
     for pi, text in enumerate(pages, start=1):
         for b in brief_numbers(text):
             hits = [(i, g) for i, g, v in pool if matches(b, v)]
@@ -190,7 +229,19 @@ def main():
             if grades <= {"C"}:
                 fails.append(f'{where}: "{b["text"]}" traces only to grade C ({", ".join(i for i, _ in hits)})')
             elif pi == 1 and len(pages) > 1 and not grades & {"A", "E"}:
-                fails.append(f'p1: "{b["text"]}" is grade {"/".join(sorted(grades))}; page 1 needs grade A or an estimate')
+                r_ids = {i for i, g in hits if g == "R" and outlet.get(i)}
+                if r_ids & named:
+                    continue  # outlet already named at this figure's first mention on page 1
+                window = sentence(text, b["pos"])
+                attributed = {i for i in r_ids if squash(outlet[i]) in window}
+                if attributed:
+                    named |= attributed
+                    continue
+                if "R" in grades:
+                    who = ", ".join(sorted({outlet[i] for i, g in hits if g == "R" and outlet.get(i)}))
+                    fails.append(f'p1: "{b["text"]}" is grade R; name its outlet ({who}) in the same sentence at its first mention on page 1')
+                else:
+                    fails.append(f'p1: "{b["text"]}" is grade {"/".join(sorted(grades))}; page 1 needs grade A, an estimate, or attributed grade R')
 
     if fails:
         print(f"FAIL ledger check ({traced} numbers traced, {len(estimates)} estimates)")
