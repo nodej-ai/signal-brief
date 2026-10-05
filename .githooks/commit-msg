@@ -1,0 +1,10 @@
+#!/bin/sh
+# Blocks tool-attribution lines in commit messages for NodeJ repos.
+# Enabled per clone with: git config core.hooksPath .githooks
+if grep -Eiq '^(co-authored-by:.*(claude|anthropic|noreply@anthropic)|claude-session:)|generated with \[?claude code' "$1"; then
+  echo "commit-msg: tool attribution lines are not allowed in NodeJ repos." >&2
+  echo "Remove any Co-Authored-By: Claude, Claude-Session: or 'Generated with Claude Code' line and commit again." >&2
+  grep -Ein '^(co-authored-by:.*(claude|anthropic|noreply@anthropic)|claude-session:)|generated with \[?claude code' "$1" >&2
+  exit 1
+fi
+exit 0

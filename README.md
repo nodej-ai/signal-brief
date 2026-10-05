@@ -102,3 +102,7 @@ Briefs made with the prompt carry "Method: NodeJ Signal Brief (nodej.ai)" in the
 Send a signal to julian@nodej.ai.
 
 See [CHANGELOG.md](CHANGELOG.md) for what changed and why.
+
+## Contributing
+
+Run `git config core.hooksPath .githooks` once after cloning; the commit-msg hook blocks tool-attribution lines.
