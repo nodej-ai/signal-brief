@@ -33,6 +33,10 @@ jobs:
           python3 tests/test_fit_check.py
           python3 tests/test_ledger_check.py
           python3 tests/test_bar.py
+          python3 tests/test_timing.py
+
+      - name: Examples stay current
+        run: python3 tests/test_examples.py
 
       - name: Release notes from CHANGELOG
         run: |

@@ -2,6 +2,9 @@
 
 Each version adds a rule because a real brief broke without it.
 
+## 1.5.5, October 5, 2026
+- **Examples stay current, enforced at release.** `examples/manifest.json` records the method version each example was built with and the oldest allowed (`examples_min`). `tests/test_examples.py` fails the release if an example is older than that, missing from the manifest or README, or fails `fit_check.py`. When a release changes what a brief says or how it is checked, raise `examples_min` to it; the release then cannot ship until every example is rebuilt. Until 1.5.4, three of six examples sat two method versions behind and nothing flagged it. The release workflow also now runs `test_timing.py`.
+
 ## 1.5.4, October 5, 2026
 - **All six examples now follow the current method.** Ford, Maryland and the AHP hotel REITs were rewritten under 1.5.3: each report ends with an answer key, page 1 says what was said or done, and every guessed motive is gone. Fresh readers' page-1 explanations matched all six answer keys on the first round. The rewrite dropped three titles that told a story the record did not support: "Partner in Europe, wall off America" (Farley never said it), "Banned before it arrived" (the record does not show the practice was absent from Maryland stores), and "The yield was their own money" (the SEC said "primarily", and the sponsor settled without admitting it).
 - **`ledger_check.py` skips bill, chapter, docket and case numbers** (SB 387, HB 895, Chapter 154). A fixer wrote "SB387" without a space to get past the checker; the checker now reads the identifier correctly, so the brief can print it correctly.

@@ -1,6 +1,6 @@
 # NodeJ Signal Brief
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.5.4](https://img.shields.io/badge/version-1.5.4-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.5.5](https://img.shields.io/badge/version-1.5.5-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
 
 A four-step prompt that turns one news signal into a sourced research report and a three-page brief a busy executive can read in three minutes.
 
