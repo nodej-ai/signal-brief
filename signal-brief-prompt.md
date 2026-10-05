@@ -1,6 +1,6 @@
 # NodeJ Signal Brief: four-step research prompt
 
-**Version 1.4.1, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
+**Version 1.5.0, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
 
 Paste this whole file into a chat, or into a Claude Project's instructions, using a model that can browse the web, run code, and (ideally) launch a separate agent. Then type your signal: the headline or one-sentence fact you want researched. You get back a sourced research report and a three-page brief that teaches a smart reader outside the industry what happened, how it works, and what to do about it.
 
@@ -52,7 +52,7 @@ Cover, in this order:
 6. **Who pays, who gains.** By group: the buyer, the counterparty, the regulator, the public. Mark every line FACT (a number with a source) or READ (your interpretation).
 7. **What it looks like for a normal company.** The terms a non-giant would face if they tried the same thing: minimums, deposits, contract length, exit penalties, borrowing rates by credit quality. If three or more of those would be "not disclosed," research instead what a smaller company pays or must do under the public rules the signal touches: duties, filings, deadlines, penalties, borrowing rates. If no smaller-company version exists (for example, a sovereign policy), research who the move reaches next: suppliers, customers, or the reader's own sector.
 8. **History.** If the practice is common, use today's everyday version (who does this routinely now). Add the closest older case only if it teaches something the current version does not. Figures, dates, how it ended, and where the analogy breaks.
-9. **What is not being said.** The gap between public statements and the record. Every entry carries a date and one line on what it means for an outsider.
+9. **What is not being said.** The gap between public statements and the record. Every entry carries a date and one line on what it means for an outsider. Where two or more parties publish competing readings of the signal, each with a number, also record each side's headline claim (quoted, with source) and the report fact it leaves out.
 10. **Watch list.** Dated events in the next six months that would confirm or break the read.
 11. **Quote bank.** Every usable direct quotation, one row each: the quote verbatim, speaker, role, date said, source URL, context, which claim it supports, and **Still true today?** (yes or no, plus why). Mark each row by age: under 6 months, 6 to 12 months, or older.
 12. **Glossary.** Every acronym and technical term the brief might use, with its full name and a one-line plain definition.
@@ -103,15 +103,15 @@ Write in teaching order: what happened, how it works, why they did it, what it c
 
 - **Who else.** A table of four to six comparable deals: who, counterparty, size, term, new or existing, and a one-line read per row. Every row must teach something the others do not. If the reader's own industry appears, put that row last and highlight it.
 - **What it looks like for you.** The non-giant terms as a short ladder or table: minimum, deposit, term, exit cost, borrowing rate by credit quality. If the report switched section 7 to public-rule costs or to who the move reaches next, use those rows and retitle the section to match. Print "not disclosed" at most once in this section.
-- **What is not being said.** Three items. Each is a bold one-line insight, then the dated fact behind it, then one closing sentence on the consequence for the reader. Do not label the consequence ("Why it matters" is banned); write it so it stands on its own.
+- **What each side leaves out** (the method calls this Claims and Omissions). Use it when two or more parties publish competing readings of the signal, each with a number. A table with one row per side (two or three sides) and four columns: Side (named by role, never by party) | Claim (their headline number or line, from the Quote bank or ledger) | Omission (the report fact their claim leaves out, with its source) | What settles it (the one fact or document that would decide it). Each side gets exactly one claim and one omission. The omission states what is missing, never why it was left out. If no two parties publish competing readings, use the next section instead.
+- **What is not being said.** Use when "What each side leaves out" does not apply. Three items. Each is a bold one-line insight, then the dated fact behind it, then one closing sentence on the consequence for the reader. Do not label the consequence ("Why it matters" is banned); write it so it stands on its own.
 
 ### Page 3: the turn
 
 - **The twist.** The one place where the record and the statements diverge. A horizontal timeline with four to eight dated beats, then one Fact line that adds something new (never a restatement of the beats).
 - **The everyday version.** The history from the report in three to five lines, then one line beginning "Where it breaks:".
-- **What would change the read.** Two plain scenarios in flowing sentences: what would have to be true for the read to be wrong.
 - **Three questions for an executive.** Each answerable with a number, each traced to a specific section of this brief, and each followed by a "Then:" line saying what the executive does with the answer. No yes/no questions. Cut any question that would fit a different brief.
-- **What to watch.** Two dated events that most directly confirm or break the read.
+- **What to watch.** Two dated events that most directly confirm or break the read. Each says which way it moves the read: what result confirms it, what result breaks it.
 - **Byline.** Who researched it and how to request the full report.
 - **Method credit.** The page footer carries "Method: NodeJ Signal Brief (nodej.ai)" on every page.
 
@@ -133,7 +133,7 @@ Write in teaching order: what happened, how it works, why they did it, what it c
 
 14. **Only graded numbers.** Every number on the page comes from the Figures ledger (grade A or B) or the Estimates table. Page 1 uses grade A figures and estimates only. Fewer numbers are better than weaker ones.
 
-**Word budgets.** Write to these limits the first time; they are sized so each page fits without trimming later. Title 6 words. Signal 35. Read 45. Cost 40. Simple version 60. Picture heading 8. Each money-walk step 18. Each alternative box 5 rows of 6 words. Arithmetic strip 5 inputs. Who-else read 14 per row. Each "not being said" item 45. Claim-vs-record rows 20 words each. Twist beats 6 words each. Everyday version 70. Each scenario 35. Each question 25, each "Then:" 20. Each watch item 20.
+**Word budgets.** Write to these limits the first time; they are sized so each page fits without trimming later. Title 6 words. Signal 35. Read 45. Cost 40. Simple version 60. Picture heading 8. Each money-walk step 18. Each alternative box 5 rows of 6 words. Arithmetic strip 5 inputs. Who-else read 14 per row. Each "not being said" item 45. Each "leaves out" row 45. Claim-vs-record rows 20 words each. Twist beats 6 words each. Everyday version 70. Each question 25, each "Then:" 20. Each watch item 20.
 
 Also:
 

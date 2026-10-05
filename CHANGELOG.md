@@ -2,6 +2,10 @@
 
 Each version adds a rule because a real brief broke without it.
 
+## 1.5.0, October 4, 2026
+- **Removed "What would change the read."** Two briefs in a row filled it with restated facts: the Maryland grocery brief with "if" scenarios and then tripwires that repeated page 2; the AHP hotel-REIT brief with "too dark if the hotels sell well above their loans" and then a loans-per-room break-even that restated page 1 with no value to compare against. "What to watch" already carries what would confirm or break the read, so each watch item now says which result confirms it and which breaks it.
+- **"What each side leaves out" (Claims and Omissions).** When two or more parties publish competing readings with numbers, page 2 shows one row per side: its claim, the report fact the claim leaves out, and what would settle it. The omission says what is missing, never why. Otherwise "What is not being said" stays. Tested on the Maryland grocery brief (sponsors vs retailers) and the Amazon chip-leaseback brief (Amazon, lenders, skeptics); not used on the AHP hotel brief, where one sponsor pitch faces one SEC record.
+
 ## 1.4.1, October 3, 2026
 - **Research parts run on Sonnet; the reader and fact checker are pinned to Sonnet.** Drafting, the report, and fixes stay with the main model. A rerun of the Ford signal finished research in 2.8 minutes on 40 lookups (about 10 minutes before) and hit no eval traps after the freshness check and grade upgrades.
 - **The cost of the alternative is never "not disclosed."** With no stated figure, research builds an estimate from public inputs and shows the formula. The Sonnet rerun stopped at "not disclosed" for the cost of closing Valencia.

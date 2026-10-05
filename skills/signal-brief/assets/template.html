@@ -10,7 +10,7 @@
   Change the accent by editing --accent. Do not lower any font-size.
   Word budgets (from the prompt): title 6, Signal 35, Read 45, Cost 40, simple version 60,
   money-walk step 18, alternative box 5 rows x 6 words, who-else read 14, not-said item 45,
-  picture title 8, twist beat 6, everyday version 70, scenario 35, question 25 + Then 20, watch item 20.
+  picture title 8, twist beat 6, everyday version 70, question 25 + Then 20, watch item 20.
   Every number must come from the report's Figures ledger or Estimates (ledger_check.py checks this).
 -->
 <style>
@@ -60,6 +60,7 @@ tr.you td { border-top: 1pt solid var(--ink); } tr.you td.b { color: var(--accen
 .ladder .rung.on { border-left-color: var(--accent); }
 .ns p { margin-bottom: 6pt; }
 .ns b { display: block; }
+table.sides td { font-size: 9pt; } table.sides td:last-child { color: var(--accent); }
 .qs { display: grid; grid-template-columns: 1fr 1fr; column-gap: 14pt; font-size: 9.2pt; }
 .qs .q { font-weight: 600; border-top: 0.5pt solid var(--rule); padding: 3pt 0; }
 .qs .t { color: var(--accent); border-top: 0.5pt solid var(--rule); padding: 3pt 0; }
@@ -175,6 +176,15 @@ svg.sb-bar text { font-family: var(--sans); } .svg-v { font-size: 12px; font-wei
     <div class="rung"><b>Borrowing rate</b><span>[rate by credit quality]</span></div>
   </div>
 
+  <!-- WHAT EACH SIDE LEAVES OUT: use instead of "What is not being said" when two or more parties publish
+       competing readings with numbers. One row per side; omission says what is missing, never why.
+  <h2>What each side leaves out</h2>
+  <table class="sides">
+    <tr><th>Side</th><th>Claim</th><th>Omission</th><th>What settles it</th></tr>
+    <tr><td class="b">[Side, by role]</td><td>[Headline number or line]</td><td>[Report fact the claim leaves out]</td><td>[Fact or document that decides it]</td></tr>
+    <tr><td class="b">[Side, by role]</td><td>[Claim]</td><td>[Omission]</td><td>[What settles it]</td></tr>
+  </table>
+  -->
   <h2>What is not being said</h2>
   <div class="ns">
     <p><b>[Bold one-line insight.]</b>[Dated fact behind it.] [Consequence for the reader, no label.]</p>
@@ -201,9 +211,6 @@ svg.sb-bar text { font-family: var(--sans); } .svg-v { font-size: 12px; font-wei
   <h2>The everyday version</h2>
   <p>[Three to five lines of history from the report.]</p>
   <p><b>Where it breaks:</b> [Where the comparison stops holding.]</p>
-
-  <h2>What would change the read</h2>
-  <p>[Scenario one, in flowing sentences.] [Scenario two.]</p>
 
   <h2>Three questions for an executive</h2>
   <div class="qs">
