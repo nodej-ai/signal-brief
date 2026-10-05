@@ -12,7 +12,7 @@ If this helps, star the repo so others can find it.
 
 ## What you get
 
-Files are named `signal-brief-<slug>-<date>`, for example `signal-brief-ford-geely-europe-2026-10-03.pdf`.
+Files are named `signal-brief-<slug>-<date>`, for example `signal-brief-ford-china-europe-2026-10-03.pdf`.
 
 | Output | What it is |
 |---|---|
@@ -82,7 +82,7 @@ The plugin reads the same prompt file as this repo, so the two never drift. On t
 
 | Brief | Signal |
 |---|---|
-| [Ford partners abroad, gatekeeps at home](examples/nodej-signal-brief-ford-geely-europe-2026-10-02.pdf) | Ford's CEO says it is "too late" for Europe to hold off Chinese automakers, but not for the US |
+| [Partner in Europe, wall off America](examples/nodej-signal-brief-ford-china-europe-2026-10-03.pdf) | Ford CEO Jim Farley's Sep 29, 2026 remark that Europe is "too late" to hold off Chinese carmakers while the US must be careful, and Ford partnering with Geely at its Valencia plant |
 | [Amazon is shopping for lenders](examples/nodej-signal-brief-amazon-leaseback-2026-10-02.pdf) | Amazon in talks to move about $8 billion of AI chips off its balance sheet |
 | [Apple is financing the refresh](examples/nodej-signal-brief-chromebook-to-apple-2026-10-02.pdf) | A Texas school district swaps Chromebooks for Apple |
 | [The anchor tenant returns](examples/nodej-signal-brief-power-deals-2026-10-01.pdf) | Meta signs 20-year nuclear power deals |

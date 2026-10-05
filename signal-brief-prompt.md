@@ -10,7 +10,7 @@ Paste this whole file into a chat, or into a Claude Project's instructions, usin
 
 Run four steps in order. Do not start a step until the one before it is complete and saved. Steps 2 to 4 use only the Step 1 report. No new searching after Step 1.
 
-**File names.** Pick a slug of two to five lowercase words naming the companies and the subject (for example `ford-geely-europe`) and name every file `signal-brief-<slug>-<YYYY-MM-DD>`, shortened below to `<name>`: `<name>-report.md`, `<name>.html`, `<name>.pdf`, `<name>-reader-test.md`, `<name>-fact-check.md`, `<name>-timing.log`.
+**File names.** Pick a slug of two to five lowercase words naming the companies and the subject (for example `ford-china-europe`) and name every file `signal-brief-<slug>-<YYYY-MM-DD>`, shortened below to `<name>`: `<name>-report.md`, `<name>.html`, `<name>.pdf`, `<name>-reader-test.md`, `<name>-fact-check.md`, `<name>-timing.log`.
 
 **Timing.** At the start and end of every step, append one line to `<name>-timing.log`: the current time from the system clock (use code), the step, `start` or `end`, and lookups used so far (a lookup is one web search or one page fetch).
 
