@@ -1,6 +1,6 @@
 # NodeJ Signal Brief: four-step research prompt
 
-**Version 1.5.3, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
+**Version 1.5.4, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
 
 Paste this whole file into a chat, or into a Claude Project's instructions, using a model that can browse the web, run code, and (ideally) launch a separate agent. Then type your signal: the headline or one-sentence fact you want researched. You get back a sourced research report and a three-page brief that teaches a smart reader outside the industry what happened, how it works, and what to do about it.
 

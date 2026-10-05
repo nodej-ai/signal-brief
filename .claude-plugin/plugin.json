@@ -1,7 +1,7 @@
 {
   "name": "signal-brief",
   "displayName": "Signal Brief",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "description": "Turn one news signal into a three-page executive brief.",
   "author": {
     "name": "NodeJ",

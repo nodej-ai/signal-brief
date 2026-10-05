@@ -15,7 +15,8 @@ Checks:
      report, or a named analyst's estimate of an undisclosed term (R:Jefferies). It counts as grade B, and it may
      also sit on page 1 if <outlet> is named in the same sentence as its first mention on page 1. At most 5 grade R rows.
 Ignored: years (1900-2100 with no $ or %), numbers under 10 with no $ or %, day numbers next to a month,
-year ranges and decades (2025-26, 2028/29, 1950s-60s), 24/7, "12 months", and identifiers (ER26-3380, A320).
+year ranges and decades (2025-26, 2028/29, 1950s-60s), 24/7, "12 months", identifiers (ER26-3380, A320),
+and bill, chapter, docket or case numbers (SB 387, HB 895, Chapter 154).
 Exit 0 = pass, 1 = fail (reasons printed), 2 = could not read the inputs.
 """
 import ast
@@ -131,6 +132,8 @@ def brief_numbers(text):
             prev, nxt, tight = text[ns - 1:ns], text[m.end():m.end() + 1], text[max(0, ns - 12):ns]
             if prev.isalpha() or re.search(r"[A-Za-z]{1,4}\d+[-/]$", tight):
                 continue  # identifier: ER26, ER26-3380, A320
+            if re.search(r"\b(?:[HS]B|[HS]F|AB|LD|HR|S|H|No\.|Chapter|Ch\.|Docket|Case)\s$", tight):
+                continue  # bill, chapter, docket or case number: SB 387, HB 895, Chapter 154
             if re.search(r"(?:19|20)\d{2}s?[-/\u2013]$", tight):
                 continue  # second half of a year range: 2025-26, 2028/29, 1950s-60s
             if nxt == "s" and v % 10 == 0 and v < 100:

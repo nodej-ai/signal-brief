@@ -147,7 +147,13 @@ def main():
     print(("ok   " if ok else "FAIL ") + f"grade R repeat after a named first mention passes (exit {code})")
     if not ok:
         print(out)
-    total = len(CASES) + 11
+    code, out = run(LEDGER, GOOD + " Signed as SB 387 and HB 895, Chapter 154.", ".txt")
+    ok = code == 0
+    failed += not ok
+    print(("ok   " if ok else "FAIL ") + f"bill and chapter numbers are ignored (exit {code})")
+    if not ok:
+        print(out)
+    total = len(CASES) + 12
     print(f"\n{total - failed}/{total} passed")
     sys.exit(1 if failed else 0)
 
