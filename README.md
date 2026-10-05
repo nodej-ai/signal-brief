@@ -86,6 +86,8 @@ The plugin reads the same prompt file as this repo, so the two never drift. On t
 | [Amazon is shopping for lenders](examples/nodej-signal-brief-amazon-leaseback-2026-10-02.pdf) | Amazon in talks to move about $8 billion of AI chips off its balance sheet |
 | [Apple is financing the refresh](examples/nodej-signal-brief-chromebook-to-apple-2026-10-02.pdf) | A Texas school district swaps Chromebooks for Apple |
 | [The anchor tenant returns](examples/nodej-signal-brief-power-deals-2026-10-01.pdf) | Meta signs 20-year nuclear power deals |
+| [Banned before it arrived](examples/nodej-signal-brief-maryland-grocery-pricing-2026-10-04.pdf) | Maryland's ban on personal-data pricing at large grocers and delivery apps; shows the state comparison grid and "What each side leaves out" |
+| [The yield was their own money](examples/nodej-signal-brief-ahp-hotel-reit-chapter11-2026-10-04.pdf) | Two retail-funded REITs holding Hilton- and Marriott-branded hotel stakes file Chapter 11 after an SEC settlement |
 
 ## Credit
 
