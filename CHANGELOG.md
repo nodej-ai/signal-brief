@@ -2,6 +2,10 @@
 
 Each version adds a rule because a real brief broke without it.
 
+## 1.5.6, October 6, 2026
+- **Page 3 ends with the reader's part.** A fixed box, "Your judgment finishes this brief", replaces the byline. A brief can't be perfect: some human judgment shapes what it says and leaves out, so the reader is asked to engage, check it, and ask the follow-up questions. The old byline offered "the full research report" by email, but the report belongs to whoever ran the method, so the offer is gone.
+- **Less repetition.** The footer drops its leading "Signal Brief"; the page-1 brand line names the brief and the footer keeps the method credit. All six examples rebuilt.
+
 ## 1.5.5, October 5, 2026
 - **Examples stay current, enforced at release.** `examples/manifest.json` records the method version each example was built with and the oldest allowed (`examples_min`). `tests/test_examples.py` fails the release if an example is older than that, missing from the manifest or README, or fails `fit_check.py`. When a release changes what a brief says or how it is checked, raise `examples_min` to it; the release then cannot ship until every example is rebuilt. Until 1.5.4, three of six examples sat two method versions behind and nothing flagged it. The release workflow also now runs `test_timing.py`.
 

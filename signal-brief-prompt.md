@@ -1,6 +1,6 @@
 # NodeJ Signal Brief: four-step research prompt
 
-**Version 1.5.5, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
+**Version 1.5.6, October 2026.** Created by Julian Tang, NodeJ ([nodej.ai](https://nodej.ai)). Free to use, change, and share under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit: "NodeJ Signal Brief method by Julian Tang, nodej.ai."
 
 Paste this whole file into a chat, or into a Claude Project's instructions, using a model that can browse the web, run code, and (ideally) launch a separate agent. Then type your signal: the headline or one-sentence fact you want researched. You get back a sourced research report and a three-page brief that teaches a smart reader outside the industry what happened, how it works, and what to do about it.
 
@@ -116,8 +116,8 @@ Write in teaching order: what happened, how it works, what it does for each side
 - **The everyday version.** The history from the report in three to five lines, then one line beginning "Where it breaks:".
 - **Three questions for an executive.** Each answerable with a number, each traced to a specific section of this brief, and each followed by a "Then:" line saying what the executive does with the answer. No yes/no questions. Cut any question that would fit a different brief.
 - **What to watch.** Two dated events that most directly confirm or break the read. Each says which way it moves the read: what result confirms it, what result breaks it.
-- **Byline.** Who researched it and how to request the full report.
-- **Method credit.** The page footer carries "Method: NodeJ Signal Brief (nodej.ai)" on every page.
+- **Your judgment.** A boxed note after What to watch, worded exactly as in the template: the header "Your judgment finishes this brief" and the line "This brief can't be perfect. Some human judgment shaped what it says and what it leaves out. It's built for learning, so engage with it: apply your own critical thinking, decide what's right or wrong, and ask the follow-up questions. Those calls are yours." Nothing follows it on the page: no byline, no contact, no offer of the full report (the report belongs to whoever ran the method).
+- **Method credit.** The page footer reads "[Title] | [Month YYYY] | Method: NodeJ Signal Brief (nodej.ai)" on every page. The brand line on page 1 already names the brief, so the footer does not repeat it.
 
 ### Rules for Step 2
 

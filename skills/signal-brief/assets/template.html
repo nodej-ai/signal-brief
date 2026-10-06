@@ -66,7 +66,9 @@ table.sides td { font-size: 9pt; } table.sides td:last-child { color: var(--acce
 .qs .t { color: var(--accent); border-top: 0.5pt solid var(--rule); padding: 3pt 0; }
 .watch { display: grid; grid-template-columns: 1in 1fr; row-gap: 3pt; font-size: 9.2pt; }
 .watch .d { font-weight: 600; color: var(--accent); }
-.byline { font-size: 9pt; color: var(--gray); margin-top: 8pt; }
+.take { margin-top: 10pt; border: 1.5pt solid var(--accent); border-radius: 6pt; background: var(--soft); padding: 7pt 11pt 6pt 11pt; }
+.take h3 { margin: 0 0 3pt 0; font-family: var(--display); font-size: 11.5pt; color: var(--accent); }
+.take p { margin: 0; font-size: 9.4pt; }
 svg text { font-family: var(--sans); }
 .svg-l { font-size: 12px; fill: var(--gray); }
 .exhibit { margin-top: 4pt; }
@@ -152,7 +154,7 @@ svg.sb-bar text { font-family: var(--sans); } .svg-v { font-size: 12px; font-wei
   -->
   <p class="fx">[Only if any figure was converted: €1 = $[x] (European Central Bank reference rate, Mon D YYYY).]</p>
 
-  <div class="foot"><span>Signal Brief | [Title] | [Month YYYY] | Method: NodeJ Signal Brief (nodej.ai)</span><span>Page 1 of 3</span></div>
+  <div class="foot"><span>[Title] | [Month YYYY] | Method: NodeJ Signal Brief (nodej.ai)</span><span>Page 1 of 3</span></div>
 </section>
 
 <!-- PAGE 2: the field -->
@@ -192,7 +194,7 @@ svg.sb-bar text { font-family: var(--sans); } .svg-v { font-size: 12px; font-wei
     <p><b>[Bold one-line insight.]</b>[Dated fact behind it.] [Consequence for the reader, no label.]</p>
   </div>
 
-  <div class="foot"><span>Signal Brief | [Title] | [Month YYYY] | Method: NodeJ Signal Brief (nodej.ai)</span><span>Page 2 of 3</span></div>
+  <div class="foot"><span>[Title] | [Month YYYY] | Method: NodeJ Signal Brief (nodej.ai)</span><span>Page 2 of 3</span></div>
 </section>
 
 <!-- PAGE 3: the turn -->
@@ -225,9 +227,13 @@ svg.sb-bar text { font-family: var(--sans); } .svg-v { font-size: 12px; font-wei
     <div class="d">[Mon D YYYY]</div><div>[Event that confirms or breaks the read.]</div>
   </div>
 
-  <p class="byline">[Researched by ... For the full research report, contact ...]</p>
+  <!-- Fixed copy. Do not edit, shorten, or add a byline or contact line after it. -->
+  <div class="take">
+    <h3>Your judgment finishes this brief</h3>
+    <p>This brief can't be perfect. Some human judgment shaped what it says and what it leaves out. It's built for learning, so engage with it: apply your own critical thinking, decide what's right or wrong, and ask the follow-up questions. Those calls are yours.</p>
+  </div>
 
-  <div class="foot"><span>Signal Brief | [Title] | [Month YYYY] | Method: NodeJ Signal Brief (nodej.ai)</span><span>Page 3 of 3</span></div>
+  <div class="foot"><span>[Title] | [Month YYYY] | Method: NodeJ Signal Brief (nodej.ai)</span><span>Page 3 of 3</span></div>
 </section>
 </body>
 </html>

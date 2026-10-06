@@ -1,6 +1,6 @@
 # NodeJ Signal Brief
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.5.5](https://img.shields.io/badge/version-1.5.5-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) ![Version 1.5.5](https://img.shields.io/badge/version-1.5.6-0E6B55) [![GitHub stars](https://img.shields.io/github/stars/nodej-ai/signal-brief?style=social)](https://github.com/nodej-ai/signal-brief/stargazers)
 
 A four-step prompt that turns one news signal into a sourced research report and a three-page brief a busy executive can read in three minutes.
 
@@ -88,6 +88,10 @@ The plugin reads the same prompt file as this repo, so the two never drift. On t
 | [Meta pays for running reactors' output](examples/nodej-signal-brief-meta-nuclear-power-deals-2026-10-05.pdf) | Meta's 20-year nuclear contracts with Constellation and Vistra; shows the signal check (the deals were 2025 and early 2026, not new) and an analyst estimate of an undisclosed price |
 | [Maryland bars personal-data price hikes](examples/nodej-signal-brief-maryland-grocery-pricing-2026-10-04.pdf) | Maryland's ban on personal-data pricing at large grocers and delivery apps; shows the state comparison grid and "What each side leaves out" |
 | [Court now sorts who gets paid](examples/nodej-signal-brief-ahp-hotel-reit-chapter11-2026-10-04.pdf) | Two retail-funded REITs tied to Hilton- and Marriott-branded hotels file Chapter 11 after an SEC settlement; the SEC's finding is quoted and attributed, never used as the title |
+
+## It can't be perfect
+
+Every brief carries some human judgment in what it says and what it leaves out, and the checks catch errors without making the calls. If you run the method, you are the editor: read the brief, question it, and own what you share. Your research report sits next to your brief and is yours to keep. Page 3 of every brief ends with a box asking the reader to do the same.
 
 ## Credit
 

@@ -1,11 +1,29 @@
 {
-  "examples_min": "1.5.3",
+  "examples_min": "1.5.6",
   "examples": {
-    "nodej-signal-brief-amazon-chip-leaseback-2026-10-05.pdf": {"built_with": "1.5.3", "signal_type": "event"},
-    "nodej-signal-brief-chromebook-to-apple-2026-10-05.pdf": {"built_with": "1.5.3", "signal_type": "event"},
-    "nodej-signal-brief-meta-nuclear-power-deals-2026-10-05.pdf": {"built_with": "1.5.3", "signal_type": "event"},
-    "nodej-signal-brief-ford-china-europe-2026-10-03.pdf": {"built_with": "1.5.4", "signal_type": "statement"},
-    "nodej-signal-brief-maryland-grocery-pricing-2026-10-04.pdf": {"built_with": "1.5.4", "signal_type": "policy"},
-    "nodej-signal-brief-ahp-hotel-reit-chapter11-2026-10-04.pdf": {"built_with": "1.5.4", "signal_type": "event"}
+    "nodej-signal-brief-amazon-chip-leaseback-2026-10-05.pdf": {
+      "built_with": "1.5.6",
+      "signal_type": "event"
+    },
+    "nodej-signal-brief-chromebook-to-apple-2026-10-05.pdf": {
+      "built_with": "1.5.6",
+      "signal_type": "event"
+    },
+    "nodej-signal-brief-meta-nuclear-power-deals-2026-10-05.pdf": {
+      "built_with": "1.5.6",
+      "signal_type": "event"
+    },
+    "nodej-signal-brief-ford-china-europe-2026-10-03.pdf": {
+      "built_with": "1.5.6",
+      "signal_type": "statement"
+    },
+    "nodej-signal-brief-maryland-grocery-pricing-2026-10-04.pdf": {
+      "built_with": "1.5.6",
+      "signal_type": "policy"
+    },
+    "nodej-signal-brief-ahp-hotel-reit-chapter11-2026-10-04.pdf": {
+      "built_with": "1.5.6",
+      "signal_type": "event"
+    }
   }
 }
